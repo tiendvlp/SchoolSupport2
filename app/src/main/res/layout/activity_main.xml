@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0dp"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintEnd_toEndOf="parent" android:id="@+id/contentView"
+                     app:layout_constraintBottom_toTopOf="@+id/rbtnGroup"
+                     app:layout_constraintTop_toTopOf="parent">
+        </FrameLayout>
+        <RadioGroup android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:paddingTop="5dp"
+                    android:background="@color/Black3"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" android:id="@+id/rbtnGroup">
+            <RadioButton android:layout_width="32dp" android:layout_height="32dp"
+                         android:button="@null"
+                         android:layout_marginRight="40dp"
+                         android:background="@drawable/home_press" android:id="@+id/rbtnMain"/>
+            <RadioButton android:layout_width="32dp" android:layout_height="32dp"
+                         android:button="@null"
+                         android:layout_marginRight="40dp"
+                         android:background="@drawable/favorite_press" android:id="@+id/rbtnFavorite"/>
+            <ImageButton android:layout_width="36dp"
+                         android:layout_height="36dp"
+                         android:background="@null"
+                         android:id="@+id/btnCreatePost"
+                         android:layout_marginRight="40dp"
+                         android:scaleType="centerInside"
+                         android:src="@drawable/create_press"/>
+            <RadioButton android:layout_width="32dp" android:layout_height="32dp"
+                         android:button="@null"
+                         android:layout_marginRight="40dp"
+                         android:background="@drawable/notification_press" android:id="@+id/rbtnNotification"/>
+            <RadioButton android:layout_width="32dp" android:layout_height="32dp"
+                         android:button="@null"
+                         android:background="@drawable/user_press" android:id="@+id/rbtnUser"/>
+        </RadioGroup>
+    </android.support.constraint.ConstraintLayout>
+</layout>

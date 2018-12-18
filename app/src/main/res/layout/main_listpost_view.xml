@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:orientation="vertical">
+
+    <TextView
+            android:text="Android Technology"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/arial"
+            android:textColor="@color/Black2"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" android:id="@+id/textTag"
+            android:textSize="16sp"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="Android History for a biginer hello haha hihi ho ho ??"
+                android:textSize="20sp"
+                android:fontFamily="@font/arial_black"
+                android:textColor="@color/Black4"
+                android:layout_width="wrap_content"
+                android:layout_height="103dp" android:id="@+id/textView" android:layout_weight="9"/>
+        <ImageView
+                android:background="@null"
+                android:layout_width="110dp"
+                android:layout_height="110dp" tools:srcCompat="@tools:sample/avatars" android:id="@+id/imageView"
+                android:layout_weight="0.6"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_weight="7"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text="tiendvlp"
+                    android:fontFamily="@font/arial"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/Black4"
+                    android:layout_height="18dp" android:id="@+id/textView4"/>
+            <TextView
+                    android:text="November 14"
+                    android:fontFamily="@font/arial"
+                    android:textColor="@color/Black2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView5" android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <ImageButton
+                android:background="@null"
+                android:scaleType="centerInside"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/favorite"
+                android:id="@+id/imageView3"
+                android:layout_weight="1"
+        />
+
+    </LinearLayout>
+    </LinearLayout>

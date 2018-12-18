@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SchoolSupport</string>
+    <string name="title_activity_lesson_view">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="newest_version">Newest Version</string>
+    <string name="Available_For_Update">Available</string>
+    <string name="facebook_app_id">334587217370261</string>
+    <string name="fb_login_protocol_scheme">fb334587217370261</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
