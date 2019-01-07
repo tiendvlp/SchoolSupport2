@@ -30,6 +30,7 @@ MainActivity : FullScreenActivity() {
     lateinit var btnCreatePosts : ImageButton
     private lateinit var mBinding : ActivityMainBinding
     private lateinit var mPGMainAdapter : pgMainAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

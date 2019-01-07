@@ -38,11 +38,12 @@ open class RO_Chemical_Element : RealmObject, Parcelable {
     @JvmField
     var background_color = 0
 
-    constructor() {
+    @JvmField
+    var inReality : String = ""
 
-    }
+    constructor()
 
-    constructor(id: Int, name: String, symbol: String, electron_count: Int, proton_count: Int, notron_count: Int, mass: Float, type: String, background_color: Int) {
+    constructor(id: Int, name: String, symbol: String, electron_count: Int, proton_count: Int, notron_count: Int, mass: Float, type: String, background_color: Int, inReality : String) {
 
         this.name = name
         this.symbol = symbol
@@ -53,6 +54,7 @@ open class RO_Chemical_Element : RealmObject, Parcelable {
         this.type = type
         this.id = id
         this.background_color = background_color
+        this.inReality = inReality
     }
 
     protected constructor(`in`: Parcel) {
@@ -65,6 +67,7 @@ open class RO_Chemical_Element : RealmObject, Parcelable {
         mass = `in`.readFloat()
         type = `in`.readString()
         background_color = `in`.readInt()
+        inReality = `in`.readString()
     }
 
     override fun describeContents(): Int {
@@ -81,6 +84,7 @@ open class RO_Chemical_Element : RealmObject, Parcelable {
         dest.writeFloat(mass)
         dest.writeString(type)
         dest.writeInt(background_color)
+        dest.writeString(inReality)
     }
 
     companion object {

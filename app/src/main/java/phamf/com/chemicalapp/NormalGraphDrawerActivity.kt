@@ -3,38 +3,20 @@ package phamf.com.chemicalapp
 import android.annotation.SuppressLint
 import android.arch.lifecycle.Observer
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.PaintDrawable
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
-import android.support.constraint.ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
-import android.support.constraint.Constraints
-import android.util.Log
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_normal_graph_drawer.*
 import org.mariuszgromada.math.mxparser.Expression
 import org.mariuszgromada.math.mxparser.Function
-import phamf.com.chemicalapp.Adapter.LV_Extr_N_Sol_Adapter
-import phamf.com.chemicalapp.Adapter.LV_Normal_Graph_List
 import phamf.com.chemicalapp.CustomView.AddMoreGraphDrawer
-import phamf.com.chemicalapp.CustomView.CustomViewModel.Point
 import phamf.com.chemicalapp.CustomView.GraphDrawer
-import phamf.com.chemicalapp.GraphMenuActivity.Companion.SOME_GRAPH
-import phamf.com.chemicalapp.SpecialGraphMenuActivity.Companion.HUU_TI_BAC_1
-import phamf.com.chemicalapp.SpecialGraphMenuActivity.Companion.NGU_THUC_BAC_4
-import phamf.com.chemicalapp.SpecialGraphMenuActivity.Companion.TAM_THUC_BAC_2
-import phamf.com.chemicalapp.SpecialGraphMenuActivity.Companion.TU_THUC_BAC_3
 import phamf.com.chemicalapp.Supporter.*
 import phamf.com.chemicalapp.ViewModel.GraphInfo
-import phamf.com.chemicalapp.ViewModel.MVVM_GraphDrawerActivityPresenter
 import phamf.com.chemicalapp.ViewModel.MVVM_NormalGraphDrawerActivityPresenter
 import java.math.BigDecimal
 
@@ -57,6 +39,8 @@ class NormalGraphDrawerActivity : FullScreenActivity() {
     var isTurnOnGraphList = false
 
     var chooseColor : Int = Color.BLACK
+
+    var graph_list = ArrayList<AddMoreGraphDrawer>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -192,6 +176,7 @@ class NormalGraphDrawerActivity : FullScreenActivity() {
 
         new_graph.layoutParams = normal_graph.layoutParams
         normal_graph_parent.addView(new_graph)
+        graph_list.add(new_graph)
     }
 
     private fun decreaseEndXValue() {
@@ -250,10 +235,17 @@ class NormalGraphDrawerActivity : FullScreenActivity() {
                 normal_graph.end_X_value = end_x_val
                 normal_graph.zoom_index = 50 + zoom_index * 10
                 normal_graph.draw()
-                normal_graph_extreme_n_solution.start_X_value = start_x_val
-                normal_graph_extreme_n_solution.end_X_value = end_x_val
-                normal_graph_extreme_n_solution.zoom_index = normal_graph.zoom_index
+
                 normal_graph_extreme_n_solution.draw()
+
+                for (graphs in graph_list) {
+
+                    graphs.start_X_value = normal_graph.start_X_value
+                    graphs.end_X_value = normal_graph.end_X_value
+                    graphs.zoom_index = normal_graph.zoom_index
+
+                    graphs.draw()
+                }
             }
 
             // return

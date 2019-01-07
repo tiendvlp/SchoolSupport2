@@ -116,6 +116,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/a_back_button" />
+        app:srcCompat="@drawable/a_prev_back_button" />
 
 </android.support.constraint.ConstraintLayout>

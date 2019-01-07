@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
 
     <TextView
         android:id="@+id/txt_quick_change_item_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="10dp"
-        android:text="TextView"
-        android:textSize="25sp" />
-</RelativeLayout>
+        android:layout_marginBottom="1dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:textColor="#ffffff"
+        android:background="@drawable/a_bottom_background"
+        android:text="Some organic"
+        android:textSize="23sp" />
+</LinearLayout>

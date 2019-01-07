@@ -39,6 +39,9 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
     internal lateinit var left_to_right: Animation
     internal lateinit var right_to_left: Animation
 
+    var all_content  : String = ""
+    var hasGotContent = false
+
     //    private DPDPActivityPresenter presenter;
 
     private var viewModel: MVVM_DPDPActivityPresenter? = null
@@ -53,12 +56,17 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
         var name_observer = object : Observer<String?> {
             override fun onChanged(name : String?) {
                 txt_dpdp_title!!.setText(name)
+                dpdp_btn_all.text = "Tất cả $name"
             }
         }
 
         var content_observer = object : Observer<String?> {
             override fun onChanged(content : String?) {
                 viewCreator.addView(content!!)
+                if (!hasGotContent) {
+                    all_content = content
+                    hasGotContent = true
+                }
             }
         }
 
@@ -91,7 +99,7 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
     override fun addControl() {
         qc_organic_adapter = QuickChange_Organic_Adapter(this)
         qc_organic_adapter.adaptFor(lv_dpdp_quick_change_organic!!)
-        lv_dpdp_quick_change_organic!!.visibility = View.GONE
+        dpdp_quick_search_form!!.visibility = View.GONE
 
         if (AppThemeManager.isOnNightMode) {
             bg_night_mode_dpdp!!.visibility = View.VISIBLE
@@ -107,7 +115,7 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
 
         left_to_right.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(animation: Animation) {
-                lv_dpdp_quick_change_organic!!.visibility = View.GONE
+                dpdp_quick_search_form!!.visibility = View.GONE
             }
 
             override fun onAnimationStart(animation: Animation) {
@@ -120,7 +128,7 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
 
         right_to_left.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationStart(animation: Animation) {
-                lv_dpdp_quick_change_organic!!.visibility = View.VISIBLE
+                dpdp_quick_search_form!!.visibility = View.VISIBLE
             }
             override fun onAnimationEnd(animation: Animation) {}
             override fun onAnimationRepeat(animation: Animation) {
@@ -131,10 +139,10 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
 
         var itemClickListener = object : QuickChangeItemListViewAdapter.OnItemClickListener<RO_OrganicMolecule> {
             override fun OnItemClickListener(item: RO_OrganicMolecule, view: View) {
-                //            viewCreator.clearAll();
+                viewCreator.clearAll()
                 dpdp_board!!.startAnimation(fade_out_then_in)
                 viewModel!!.convertContent(item)
-                lv_dpdp_quick_change_organic!!.startAnimation(left_to_right)
+                dpdp_quick_search_form!!.startAnimation(left_to_right)
                 isShowingQCB = false
             }
 
@@ -145,13 +153,13 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
         dpdp_board!!.setOnClickListener { v ->
             if (isShowingQCB) {
                 isShowingQCB = false
-                lv_dpdp_quick_change_organic!!.startAnimation(left_to_right)
+                dpdp_quick_search_form!!.startAnimation(left_to_right)
             }
         }
 
         btn_dpdp_turn_on_quick_change!!.setOnClickListener { v ->
             if (!isShowingQCB) {
-                lv_dpdp_quick_change_organic!!.startAnimation(right_to_left)
+                dpdp_quick_search_form!!.startAnimation(right_to_left)
                 isShowingQCB = true
             }
         }
@@ -159,6 +167,15 @@ class DPDPActivity : FullScreenActivity(), IDPDPActivity.View/*, DPDPActivityPre
         btn_dpdp_back!!.setOnClickListener { v -> finish() }
 
         btn_dpdp_home!!.setOnClickListener { v -> startActivity(Intent(applicationContext, MainActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)) }
+
+        dpdp_btn_all.setOnClickListener {
+            viewCreator.clearAll()
+            dpdp_board!!.startAnimation(fade_out_then_in)
+            viewCreator.addView(all_content)
+            dpdp_quick_search_form!!.startAnimation(left_to_right)
+            isShowingQCB = false
+        }
+
     }
 
     override fun setUpViewCreator() {

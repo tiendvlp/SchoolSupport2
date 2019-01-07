@@ -4,20 +4,8 @@ import java.lang.reflect.Array
 import java.util.ArrayList
 
 import io.realm.RealmList
-import phamf.com.chemicalapp.Model.Chapter
-import phamf.com.chemicalapp.Model.ChemicalEquation
-import phamf.com.chemicalapp.Model.Chemical_Element
-import phamf.com.chemicalapp.Model.DPDP
-import phamf.com.chemicalapp.Model.Isomerism
-import phamf.com.chemicalapp.Model.Lesson
-import phamf.com.chemicalapp.Model.OrganicMolecule
-import phamf.com.chemicalapp.RO_Model.RO_Chapter
-import phamf.com.chemicalapp.RO_Model.RO_ChemicalEquation
-import phamf.com.chemicalapp.RO_Model.RO_Chemical_Element
-import phamf.com.chemicalapp.RO_Model.RO_DPDP
-import phamf.com.chemicalapp.RO_Model.RO_Isomerism
-import phamf.com.chemicalapp.RO_Model.RO_Lesson
-import phamf.com.chemicalapp.RO_Model.RO_OrganicMolecule
+import phamf.com.chemicalapp.Model.*
+import phamf.com.chemicalapp.RO_Model.*
 
 //Convert from object from firebase to realm model object
 /** @see phamf.com.chemicalapp.Database.OnlineDatabaseManager
@@ -48,11 +36,31 @@ object ROConverter {
         return ro_chapters
     }
 
-    fun toRO_DPDPs(ro_dpdps: Collection<DPDP>): ArrayList<RO_DPDP> {
+    fun toRO_CCo (cco : Chemical_Composition) : RO_Chemical_Composition {
+            val new_ro_cco = RO_Chemical_Composition().apply {
+                id = cco.id
+                formula = cco.formula
+                inReality = cco.inReality
+                name = cco.name
+                unique_mass = cco.unique_mass
+                clean_formula = HtmlContentGetter.getContent(formula)
+            }
+        return new_ro_cco
+    }
+
+    fun toRO_CCos (ccos : Collection<Chemical_Composition>) : ArrayList<RO_Chemical_Composition>{
+        var new_ro_ccos = ArrayList<RO_Chemical_Composition>()
+        for (cco in ccos) {
+            new_ro_ccos.add(toRO_CCo(cco))
+        }
+        return new_ro_ccos
+    }
+
+    fun toRO_DPDPs(dpdps: Collection<DPDP>): ArrayList<RO_DPDP> {
 
         val ro_dpdps_list = ArrayList<RO_DPDP>()
 
-        for (dpdp in ro_dpdps) {
+        for (dpdp in dpdps) {
             val new_ro_dpdp = RO_DPDP()
             new_ro_dpdp.id = dpdp.id
             new_ro_dpdp.name = dpdp.name
