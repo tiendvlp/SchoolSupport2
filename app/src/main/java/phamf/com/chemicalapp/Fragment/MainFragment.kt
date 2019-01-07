@@ -14,11 +14,16 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import com.google.android.gms.common.util.ArrayUtils
 
 import com.schoolsupport.app.dmt91.schoolsupport.View.Activity.TextEditorActivity
+import phamf.com.chemicalapp.Adapter.MainPostListViewAdapter
 import phamf.com.chemicalapp.Adapter.pgMainAdapter
+import phamf.com.chemicalapp.Model.Post
+import phamf.com.chemicalapp.Model.PostRead
 import phamf.com.chemicalapp.R
 import phamf.com.chemicalapp.databinding.FragmentMainBinding
+import java.util.ArrayList
 
 
 class MainFragment : Fragment(), ViewPager.OnPageChangeListener {
@@ -30,7 +35,7 @@ class MainFragment : Fragment(), ViewPager.OnPageChangeListener {
     lateinit var rbtnSchool : RadioButton
     private lateinit var mBinding : FragmentMainBinding
     private lateinit var mPGMainAdapter : pgMainAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
+      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
@@ -48,6 +53,8 @@ class MainFragment : Fragment(), ViewPager.OnPageChangeListener {
         setup()
         addEvents()
     }
+
+
 
     companion object {
         private var instance : MainFragment? = null
@@ -79,6 +86,8 @@ class MainFragment : Fragment(), ViewPager.OnPageChangeListener {
         rbtngrMain.setOnCheckedChangeListener(::onRadioButtonCheckedChanged)
     }
 
+
+
     override fun onPageScrollStateChanged(state: Int) {
 
     }
@@ -102,6 +111,5 @@ class MainFragment : Fragment(), ViewPager.OnPageChangeListener {
             R.id.rbtnSchool -> pgMain.setCurrentItem(2)
         }
     }
-
 
 }

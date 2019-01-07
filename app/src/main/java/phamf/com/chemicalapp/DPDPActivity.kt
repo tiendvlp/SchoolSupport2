@@ -15,7 +15,6 @@ import android.widget.TextView
 
 import butterknife.BindView
 import butterknife.ButterKnife
-import com.schoolsupport.app.dmt91.schoolsupport.MainActivity
 import kotlinx.android.synthetic.main.activity_dpdp.*
 import phamf.com.chemicalapp.Abstraction.Interface.IDPDPActivity
 import phamf.com.chemicalapp.Abstraction.SpecialDataType.QuickChangeItemListViewAdapter

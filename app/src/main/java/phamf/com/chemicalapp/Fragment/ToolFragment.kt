@@ -21,7 +21,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
 import butterknife.OnClick
-import com.schoolsupport.app.dmt91.schoolsupport.MainActivity
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_tool.*
@@ -50,6 +49,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         return inflater.inflate(R.layout.fragment_tool, container, false)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Realm.init(this.context)
@@ -70,7 +70,12 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
         viewModel!!.loadData()
 
-        viewModel!!.checkUpdateStatus()
+        if (!hasCheck) {
+            viewModel!!.checkUpdateStatus()
+            hasCheck = true
+        }
+
+
 
     }
 
@@ -82,6 +87,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
     }
     companion object {
+        var hasCheck = false
         internal val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 21
         @JvmStatic
         fun newInstance() : ToolFragment {
@@ -239,6 +245,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         viewModel!!.setOnThemeChangeListener(this)
 
         viewModel!!.setOnUpdateStatusCheckedListener(this)
+
 
         viewModel!!.loadTheme()
     }

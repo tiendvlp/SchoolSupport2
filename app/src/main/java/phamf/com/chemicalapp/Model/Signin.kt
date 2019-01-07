@@ -1,14 +1,23 @@
 package com.schoolsupport.app.dmt91.schoolsupport.model
 
+import android.util.Log
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import phamf.com.chemicalapp.Model.AppDataSingleton
 import java.lang.Exception
 import javax.inject.Inject
 
-class Signin {
+class Signin : ValueEventListener{
+
+
     private val mAuth : FirebaseAuth
     private val mMemManager : MemberManager
 
@@ -34,22 +43,31 @@ class Signin {
     }
 
     private fun onAuthCompleteListener (task : Task<AuthResult>) {
+        this.it = task
         if (task.isComplete) {
             if (task.isSuccessful) {
-                if (!task.result!!.additionalUserInfo.isNewUser) {
-                    callback.onSuccessListener(task)
-                    return
-                }
-                this.it = task
-                val member = MemberModel()
-                member.Id = task.result!!.user.uid
-                member.Avatar = "user.png"
-                member.Name = task.result!!.user.email!!
-                mMemManager.addNewMember(member, MemberWrite.Event(::onWriteMemberSuccess, ::onWriteMemberFailed))
-                return
+                FirebaseDatabase.getInstance().reference
+                        .child("Member")
+                        .child(FirebaseAuth.getInstance().currentUser!!.uid)
+                        .addListenerForSingleValueEvent(this)
             }
         }
         callback.onFailedListener(task.exception)
+    }
+
+    override fun onCancelled(p0: DatabaseError) {
+    }
+
+    override fun onDataChange(p0: DataSnapshot) {
+        if (p0.child("isActivated").value == null) {
+            this.callback.onUserNotVerifyAccount()
+            val member = AppDataSingleton.getInstance().currentUser
+            member.Id = it.result!!.user.uid
+            return
+        } else {
+            callback.onSuccessListener(it)
+            return
+        }
     }
 
     private fun onAuthFailedListener (task:Exception) {
@@ -63,6 +81,7 @@ class Signin {
     private fun onWriteMemberSuccess (it : Task<Void>) {
         if (it.isComplete) {
             if (it.isSuccessful) {
+                AppDataSingleton.getInstance().currentUser.Id
                 callback.onSuccessListener(this.it)
                 return
             }
@@ -74,5 +93,7 @@ class Signin {
         callback.onFailedListener(it)
     }
 
-    data class Event (var onSuccessListener: (Task<AuthResult>) -> Unit, var onFailedListener: (Exception?) -> Unit)
+    data class Event (var onSuccessListener: (Task<AuthResult>) -> Unit,
+                      var onFailedListener: (Exception?) -> Unit,
+                      var onUserNotVerifyAccount: () -> Unit)
 }

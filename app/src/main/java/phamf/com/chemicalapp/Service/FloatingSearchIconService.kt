@@ -18,7 +18,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
 import android.view.WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
 import android.view.WindowManager.LayoutParams.TYPE_PHONE
-import com.schoolsupport.app.dmt91.schoolsupport.MainActivity
+import phamf.com.chemicalapp.MainActivity
 
 class FloatingSearchIconService : Service() {
 

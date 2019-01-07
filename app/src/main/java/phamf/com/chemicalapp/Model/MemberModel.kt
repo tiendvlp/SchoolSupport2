@@ -7,4 +7,7 @@ class MemberModel {
      var Name : String = ""; get set
      var Avatar : String = ""; get set
      var Id : String = ""; get set
+     var Posts : ArrayList<String> = ArrayList(); get set
+     var likedPosts : ArrayList<String> = ArrayList(); get set
+     var isActivated : Boolean = false; get set
 }

@@ -2,8 +2,6 @@ package phamf.com.chemicalapp
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.databinding.Bindable
-import com.schoolsupport.app.dmt91.schoolsupport.model.Posts
 import com.schoolsupport.app.dmt91.schoolsupport.model.VerifyAccount
 
 class RegisterViewModel : ViewModel {

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-        xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <data>
     <variable name="model" type="phamf.com.chemicalapp.TextEditorViewModel"/>
 </data>
@@ -10,111 +11,120 @@
             android:layout_height="match_parent"
             android:background="@color/white">
 
-        <jp.wasabeef.richeditor.RichEditor android:layout_width="match_parent"
-                                           android:layout_height="0dp"
-                                           android:id="@+id/edtContent"
-                                           android:background="@color/white"
-                                           app:layout_constraintStart_toStartOf="parent"
-                                           app:layout_constraintEnd_toEndOf="parent"
-                                           app:layout_constraintHorizontal_bias="0.0"
-                                           app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-                                           app:layout_constraintTop_toBottomOf="@+id/btnDrafts">
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottombar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDrafts">
 
-        </jp.wasabeef.richeditor.RichEditor>
+            <com.chinalwb.are.AREditText
+                android:id="@+id/edtContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="top|left"
+                android:textSize="20sp" />
+        </ScrollView>
+        <!-- region oldtoolbar-->
+        <!--<HorizontalScrollView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:background="@color/Transparent"-->
+                <!--android:id="@+id/scrollView2"-->
+                <!--android:fillViewport="true"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/linearLayout3"-->
+                <!--app:layout_constraintHorizontal_bias="0.0" android:clipToPadding="false">-->
+            <!--<LinearLayout android:layout_width="wrap_content"-->
+                          <!--android:layout_height="match_parent"-->
+                          <!--android:gravity="center_vertical"-->
+                          <!--android:orientation="horizontal">-->
+                <!--<LinearLayout android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:layout_marginLeft="20dp"-->
+                            <!--android:id="@+id/checkGrFormat"-->
+                            <!--android:layout_marginRight="20dp"-->
+                            <!--android:gravity="center_vertical"-->
+                            <!--android:orientation="horizontal">-->
+                    <!--<CheckBox android:layout_width="25dp" android:layout_height="25dp"-->
+                                 <!--android:layout_marginRight="20dp"-->
+                                 <!--android:background="@drawable/bullet_press"-->
+                                 <!--android:button="@null" android:id="@+id/btnBullet"/>-->
+                    <!--<CheckBox android:layout_width="25dp" android:layout_height="25dp"-->
+                                 <!--android:background="@drawable/numberic_press"-->
+                                 <!--android:button="@null" android:id="@+id/btnNumberic"/>-->
+                <!--</LinearLayout>-->
+                <!--<ImageButton android:layout_width="25dp" android:layout_height="25dp"-->
+                             <!--android:src="@drawable/horline_press"-->
+                             <!--android:layout_marginRight="20dp"-->
+                             <!--android:scaleType="centerInside"-->
+                             <!--android:background="@color/Transparent" android:id="@+id/btnHorLine"/>-->
 
-        <HorizontalScrollView
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:background="@color/Transparent"
-                android:id="@+id/scrollView2"
-                android:fillViewport="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-                app:layout_constraintHorizontal_bias="0.0" android:clipToPadding="false">
-            <LinearLayout android:layout_width="wrap_content"
-                          android:layout_height="match_parent"
-                          android:gravity="center_vertical"
-                          android:orientation="horizontal">
-                <LinearLayout android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="20dp"
-                            android:id="@+id/checkGrFormat"
-                            android:layout_marginRight="20dp"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-                    <CheckBox android:layout_width="25dp" android:layout_height="25dp"
-                                 android:layout_marginRight="20dp"
-                                 android:background="@drawable/bullet_press"
-                                 android:button="@null" android:id="@+id/btnBullet"/>
-                    <CheckBox android:layout_width="25dp" android:layout_height="25dp"
-                                 android:background="@drawable/numberic_press"
-                                 android:button="@null" android:id="@+id/btnNumberic"/>
-                </LinearLayout>
-                <ImageButton android:layout_width="25dp" android:layout_height="25dp"
-                             android:src="@drawable/horline_press"
-                             android:layout_marginRight="20dp"
-                             android:scaleType="centerInside"
-                             android:background="@color/Transparent" android:id="@+id/btnHorLine"/>
+                <!--<ImageButton android:layout_width="25dp" android:layout_height="25dp"-->
+                             <!--android:src="@drawable/insert_img_press"-->
+                             <!--android:layout_marginRight="20dp"-->
+                             <!--android:scaleType="centerInside"-->
+                             <!--android:background="@color/Transparent" android:id="@+id/btnInsertImg"/>-->
+                <!--<CheckBox android:layout_width="25dp"-->
+                          <!--android:layout_height="25dp"-->
+                             <!--android:layout_marginRight="20dp"-->
+                             <!--android:scaleType="centerInside"-->
+                             <!--android:background="@drawable/sub_press"-->
+                          <!--android:id="@+id/btnSubText"-->
+                          <!--android:button="@null"/>-->
 
-                <ImageButton android:layout_width="25dp" android:layout_height="25dp"
-                             android:src="@drawable/insert_img_press"
-                             android:layout_marginRight="20dp"
-                             android:scaleType="centerInside"
-                             android:background="@color/Transparent" android:id="@+id/btnInsertImg"/>
-                <CheckBox android:layout_width="25dp"
-                          android:layout_height="25dp"
-                             android:layout_marginRight="20dp"
-                             android:scaleType="centerInside"
-                             android:background="@drawable/sub_press"
-                          android:id="@+id/btnSubText"
-                          android:button="@null"/>
+                <!--<CheckBox-->
+                        <!--android:id="@+id/btnSupText"-->
+                        <!--android:layout_width="25dp"-->
+                          <!--android:layout_height="25dp"-->
+                             <!--android:layout_marginRight="20dp"-->
+                             <!--android:background="@drawable/sup_press"-->
+                          <!--android:button="@null"-->
+                             <!--android:scaleType="centerInside"/>-->
+                <!--<ImageButton android:layout_width="25dp" android:layout_height="25dp"-->
+                             <!--android:layout_marginRight="20dp"-->
+                             <!--android:src="@drawable/link_press"-->
+                             <!--android:scaleType="centerInside"-->
 
-                <CheckBox
-                        android:id="@+id/btnSupText"
-                        android:layout_width="25dp"
-                          android:layout_height="25dp"
-                             android:layout_marginRight="20dp"
-                             android:background="@drawable/sup_press"
-                          android:button="@null"
-                             android:scaleType="centerInside"/>
-                <ImageButton android:layout_width="25dp" android:layout_height="25dp"
-                             android:layout_marginRight="20dp"
-                             android:src="@drawable/link_press"
-                             android:scaleType="centerInside"
+                             <!--android:background="@color/Transparent" android:id="@+id/btnLink"/>-->
 
-                             android:background="@color/Transparent" android:id="@+id/btnLink"/>
-
-            </LinearLayout>
-        </HorizontalScrollView>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center_vertical"
-                android:background="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayout3"
-        >
-            <ImageButton
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:scaleType="centerInside"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@color/Transparent"
-                    android:src="@drawable/fontsize_press"
-                    android:id="@+id/btnFontSize"/>
-            <ImageButton android:layout_width="25dp" android:layout_height="25dp"
-                         android:src="@drawable/tab_press"
-                         android:layout_marginRight="20dp"
-                         android:background="@color/Transparent" android:id="@+id/btnTab"/>
-            <ImageButton android:layout_width="25dp" android:layout_height="25dp"
-                         android:scaleType="centerInside"
-                         android:layout_marginRight="20dp"
-                         android:src="@drawable/alignment_press"
-                         android:background="@color/Transparent" android:id="@+id/btnAlignment"/>
-        </LinearLayout>
+            <!--</LinearLayout>-->
+        <!--</HorizontalScrollView>-->
+        <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:background="@color/white"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayout3"-->
+        <!--&gt;-->
+            <!--<ImageButton-->
+                    <!--android:layout_width="25dp"-->
+                    <!--android:layout_height="25dp"-->
+                    <!--android:scaleType="centerInside"-->
+                    <!--android:layout_marginRight="20dp"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:background="@color/Transparent"-->
+                    <!--android:src="@drawable/fontsize_press"-->
+                    <!--android:id="@+id/btnFontSize"/>-->
+            <!--<ImageButton android:layout_width="25dp" android:layout_height="25dp"-->
+                         <!--android:src="@drawable/tab_press"-->
+                         <!--android:layout_marginRight="20dp"-->
+                         <!--android:background="@color/Transparent" android:id="@+id/btnTab"/>-->
+            <!--<ImageButton android:layout_width="25dp" android:layout_height="25dp"-->
+                         <!--android:scaleType="centerInside"-->
+                         <!--android:layout_marginRight="20dp"-->
+                         <!--android:src="@drawable/alignment_press"-->
+                         <!--android:background="@color/Transparent" android:id="@+id/btnAlignment"/>-->
+        <!--</LinearLayout>-->
+        <!-- endregion-->
         <ImageButton
                 android:src="@drawable/btn_next_press"
                 android:layout_width="wrap_content"
@@ -133,21 +143,38 @@
                 android:background="@null"
                 android:layout_marginEnd="24dp" android:layout_marginRight="24dp" android:layout_marginTop="16dp"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@+id/btnNext"/>
+        <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:background="@drawable/line"-->
+                <!--app:layout_constraintBottom_toTopOf="@+id/scrollView2" app:layout_constraintEnd_toEndOf="parent"-->
+                <!--android:layout_height="2dp" app:layout_constraintStart_toStartOf="parent"-->
+                <!--android:id="@+id/linearLayout2">-->
+        <!--<LinearLayout-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_width="2dp"-->
+                <!--android:background="@color/Black2"-->
+                <!--android:layout_height="35dp"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/linearLayout3"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent">-->
+        <!--</LinearLayout>-->
+
         <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:background="@drawable/line"
-                app:layout_constraintBottom_toTopOf="@+id/scrollView2" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_height="2dp" app:layout_constraintStart_toStartOf="parent"
-                android:id="@+id/linearLayout2">
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="2dp"
-                android:background="@color/Black2"
-                android:layout_height="35dp"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-                app:layout_constraintBottom_toBottomOf="parent">
+            android:id="@+id/bottombar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.chinalwb.are.styles.toolbar.ARE_ToolbarDefault
+                android:id="@+id/areToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
         </layout>

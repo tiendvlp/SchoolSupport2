@@ -6,6 +6,8 @@
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +17,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
-            android:name="com.schoolsupport.app.dmt91.schoolsupport.MainActivity"
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,23 +51,51 @@
         <service
             android:name=".Service.FloatingSearchIconService"
             android:enabled="true"
-            android:exported="true"  />
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".LessonMenuActivity" />
-        <activity android:name=".LessonActivity" />
-        <activity android:name=".DPDPMenuActivity" />
-        <activity android:name=".DPDPActivity" />
-        <activity android:name=".BangTuanHoangActivity" />
-        <activity android:name=".RecentLessonsActivity" />
-        <activity android:name=".ChemicalEquationActivity" />
-        <activity android:name=".ChemicalElementActivity"></activity>
-        <activity android:name="com.schoolsupport.app.dmt91.schoolsupport.RegisterActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name="com.cloneversion.foody.badguy.foody.view.activity.ResetPasswordActivity"/>
+        <activity
+            android:name=".LessonMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LessonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".DPDPMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DPDPActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BangTuanHoangActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RecentLessonsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChemicalEquationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChemicalElementActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.schoolsupport.app.dmt91.schoolsupport.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name="com.schoolsupport.app.dmt91.schoolsupport.View.Activity.TextEditorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.cloneversion.foody.badguy.foody.view.activity.ResetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ReadPageActivity"></activity>
     </application>
 
 </manifest>
