@@ -97,6 +97,12 @@ class OfflineDatabaseManager(context: Context) {
         return results
     }
 
+    fun <E : RealmObject> readAsyncSomeDataOf(dataType: Class<E>, fieldName : String, value : String, realmChangeListener: RealmChangeListener<RealmResults<E>>): RealmResults<E> {
+        val results = realm.where(dataType).equalTo(fieldName , value).findAllAsync()
+        results.addChangeListener(realmChangeListener)
+        return results
+    }
+
 
     //    @Override
     //    public RealmResults<RO_Chapter> readList(String field, int value) {

@@ -5,22 +5,23 @@
     android:id="@+id/parent_recent_learning_lesson_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_lesson_menu"
     tools:context=".RecentLessonsActivity">
 
     <TextView
         android:id="@+id/txt_recent_lesson_title"
         android:layout_width="0dp"
-        android:layout_height="58dp"
+        android:layout_height="65dp"
         android:layout_margin="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/bot_background"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/a_top_back_ground"
         android:fontFamily="@font/arimo"
-        android:gravity="center"
-        android:text="CHAPTER"
+        android:gravity="left"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:text="Bài học gần đây"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -48,17 +49,12 @@
     </android.support.v7.widget.RecyclerView>
 
 
-
-    <Button
+    <ImageButton
         android:id="@+id/btn_recent_lesson_back"
-        android:layout_width="73dp"
-        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_height="67dp"
         android:layout_margin="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/return_bottom_button"
+        android:background="@drawable/a_back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -82,5 +78,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.95"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,10 +1,11 @@
-package com.schoolsupport.app.dmt91.schoolsupport
+package phamf.com.chemicalapp
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -14,11 +15,13 @@ import com.schoolsupport.app.dmt91.schoolsupport.View.Fragment.MainFragment
 import com.schoolsupport.app.dmt91.schoolsupport.View.Fragment.NotificationFragment
 import com.schoolsupport.app.dmt91.schoolsupport.View.Fragment.UserFragment
 import phamf.com.chemicalapp.Adapter.pgMainAdapter
-import phamf.com.chemicalapp.R
+import phamf.com.chemicalapp.Database.OfflineDatabaseManager
+import phamf.com.chemicalapp.RO_Model.RO_ChemicalEquation
 import phamf.com.chemicalapp.databinding.ActivityMainBinding
 
 @Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity() {
+class
+MainActivity : FullScreenActivity() {
     lateinit var rbtngrMain : RadioGroup
     lateinit var rbtnUser : RadioButton
     lateinit var rbtnMain : RadioButton

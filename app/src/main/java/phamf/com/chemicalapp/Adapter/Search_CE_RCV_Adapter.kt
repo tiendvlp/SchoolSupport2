@@ -21,10 +21,17 @@ import phamf.com.chemicalapp.CustomView.VirtualKeyBoardSensor
 import phamf.com.chemicalapp.RO_Model.RO_ChemicalEquation
 import phamf.com.chemicalapp.R
 import phamf.com.chemicalapp.Manager.FontManager
+import phamf.com.chemicalapp.Supporter.removeAllSpace
 
+
+typealias OnAnEventHappen = () -> Unit
 
 @Suppress("DEPRECATION")
 class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapter<Search_CE_RCV_Adapter.DataViewHolder>(), Filterable {
+
+    var onSearchListEmpty: OnAnEventHappen? = null
+
+    var onSearchListHasElement: OnAnEventHappen? = null
 
     private var filter: Searcher
 
@@ -55,7 +62,8 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
     }
 
 
-    private fun process(startPos: Int, s: String): String {
+    // Not using now
+    private fun processAddSubToChemicalEquation(startPos: Int, s: String): String {
         var s = s
         val s_builder = StringBuilder()
         var continue_run = true
@@ -68,7 +76,7 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
                             if (!isNumeric(s[j])) {
                                 s_builder.insert(j, "</sub>")
                                 s_builder.insert(i, "<sub>")
-                                s = process(j + 11, s_builder.toString())
+                                s = processAddSubToChemicalEquation(j + 11, s_builder.toString())
                                 continue_run = false
                             } else if (j == s.length - 1 && isNumeric(s[j])) {
                                 s_builder.insert(i, "</sub>")
@@ -125,7 +133,7 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                getFilter().filter(s)
+                getFilter().filter(s.toString().removeAllSpace())
             }
 
             override fun afterTextChanged(s: Editable) {
@@ -137,12 +145,11 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
     fun observe(input: VirtualKeyBoardSensor) {
         input.addLiteTextChangeListener(object : VirtualKeyBoardSensor.OnTextChangeLite {
             override fun onTextChange(s: CharSequence, start: Int, before: Int, count: Int) {
-                getFilter().filter(s)
+                getFilter().filter(s.toString().removeAllSpace())
             }
 
         })
     }
-
 
     /**
      * I don't uses List.addAll(Collection collection) because that Realm Object can't be called by any thread except
@@ -150,14 +157,14 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
      * that's not allowed.
      * So i have to clone their properties to new Realm Object and then add to the list
      * Thanks to Garbage Collection of Java, data that i get from db will be deleted because there's no reference to them anymore
-     * after be setted to Search List Adapter
+     * ,after be set to Search List Adapter
      */
+
     fun setData(ro_chemicalEquations: Collection<RO_ChemicalEquation>) {
         list = ArrayList()
         defaultList = ArrayList()
         for (equation in ro_chemicalEquations) {
             val ro_equation = RO_ChemicalEquation()
-
             ro_equation.condition = equation.condition
             ro_equation.id = equation.id
             ro_equation.equation = equation.equation
@@ -171,23 +178,16 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
         notifyDataSetChanged()
     }
 
-
-    private fun cache() {
-
+    fun setOnSearchListEmptyListener (onSearchListEmpty : OnAnEventHappen) {
+        this.onSearchListEmpty = onSearchListEmpty
     }
 
-    private fun clearCache() {
-
+    fun set_OnSearchListHasElement( onSearchListHasElement : OnAnEventHappen) {
+        this.onSearchListHasElement = onSearchListHasElement
     }
-
 
     fun setOnItemClickListener(itemClickListener: OnItemClickListener) {
         this.itemClickListener = itemClickListener
-    }
-
-
-    fun isSearching(isSearching: Boolean) {
-
     }
 
 
@@ -211,7 +211,7 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
             val edited_equation : CharSequence = Html.fromHtml(ro_ce.equation)
             holder.txt_view.text = edited_equation
         }
-        holder.txt_view.typeface = FontManager.arial
+        holder.txt_view.typeface = FontManager.comic_sans
     }
 
 
@@ -238,7 +238,12 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
 
         override fun performFiltering(key: CharSequence): Filter.FilterResults? {
 
-            if (key.length == 0) return null
+            if (key.length == 0) {
+                if (onSearchListHasElement!= null) {
+                    onSearchListHasElement!!()
+                }
+                return null
+            }
 
             val sub_keys : Array<String> = key.toString().toUpperCase().split("\\+".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
 
@@ -267,6 +272,16 @@ class Search_CE_RCV_Adapter(internal var context: Context) : RecyclerView.Adapte
 
             if (results != null && results.values != null) {
                 list = results.values as ArrayList<RO_ChemicalEquation>
+                if (list!!.size == 0) {
+                    if (onSearchListEmpty != null) {
+                        onSearchListEmpty!!()
+                    }
+                }
+                else {
+                    if (onSearchListHasElement!= null) {
+                        onSearchListHasElement!!()
+                    }
+                }
             } else {
                 list = defaultList
             }

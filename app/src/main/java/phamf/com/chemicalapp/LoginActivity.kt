@@ -20,11 +20,9 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.*
-import com.schoolsupport.app.dmt91.schoolsupport.MainActivity
 import com.schoolsupport.app.dmt91.schoolsupport.RegisterActivity
 import com.schoolsupport.app.dmt91.schoolsupport.model.Signin
 import kotlinx.android.synthetic.main.activity_login.*
-import phamf.com.chemicalapp.LoginViewModel
 import phamf.com.chemicalapp.databinding.ActivityLoginBinding
 import phamf.com.chemicalapp.supportClass.getViewModel
 import java.util.*

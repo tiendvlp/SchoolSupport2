@@ -14,12 +14,20 @@ import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 import phamf.com.chemicalapp.Abstraction.Interface.Menuable
 
+/**
+ * type
+ *  + H: Hóa học
+ *  + L: Vật lí
+ *  + T : Toán học
+ */
 @RealmClass
 open class RO_Chapter (
         @PrimaryKey
         override var id: Int = 0,
 
         override var name : String = "",
+
+        var type : String = "",
 
         var lessons : RealmList<RO_Lesson> = RealmList()
 
@@ -28,6 +36,7 @@ open class RO_Chapter (
     protected constructor(`in`: Parcel) : this() {
         id = `in`.readInt()
         name = `in`.readString()
+        type = `in`.readString()
         `in`.readList(lessons, javaClass.classLoader)
     }
 
@@ -43,6 +52,7 @@ open class RO_Chapter (
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(id)
         dest.writeString(name)
+        dest.writeString(type)
         dest.writeList(lessons)
     }
 

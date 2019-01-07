@@ -16,7 +16,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.schoolsupport.app.dmt91.schoolsupport.MainActivity"
+            android:name=".MainActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
         <service
             android:name=".Service.FloatingSearchIconService"
             android:enabled="true"
-            android:exported="true"  />
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -41,10 +41,18 @@
         <activity android:name=".BangTuanHoangActivity" />
         <activity android:name=".RecentLessonsActivity" />
         <activity android:name=".ChemicalEquationActivity" />
-        <activity android:name=".ChemicalElementActivity"></activity>
-        <activity android:name="com.schoolsupport.app.dmt91.schoolsupport.RegisterActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name="com.cloneversion.foody.badguy.foody.view.activity.ResetPasswordActivity"/>
+        <activity android:name=".ChemicalElementActivity" />
+        <activity android:name="com.schoolsupport.app.dmt91.schoolsupport.RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name="com.cloneversion.foody.badguy.foody.view.activity.ResetPasswordActivity" />
+        <activity android:name=".SearchChemicalEquationActivity" />
+        <activity android:name=".GraphDrawerActivity" />
+        <activity android:name=".NormalGraphDrawerActivity" />
+        <activity android:name=".SpecialGraphMenuActivity" />
+        <activity android:name=".GraphMenuActivity" />
+        <activity android:name=".SearchCCoDictionaryActivity" />
+        <activity android:name=".ChemicalCompositionActivity" />
+        <activity android:name=".OnlineSearchChemicalEquationActivity"></activity>
     </application>
 
 </manifest>

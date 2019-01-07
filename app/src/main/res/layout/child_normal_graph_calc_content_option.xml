@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/child_normal_graph_color"
+        android:layout_width="30dp"
+        android:layout_marginStart="5dp"
+        android:background="#fd4545"
+        android:layout_height="70dp" />
+
+    <EditText
+        android:id="@+id/child_normal_graph_edt_calc_content"
+        android:layout_marginBottom="5dp"
+        android:layout_width="300dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_height="70dp" />
+
+    <Switch
+        android:id="@+id/child_normal_graph_sw_visible"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        />
+</LinearLayout>

@@ -30,15 +30,19 @@ import android.content.Context.MODE_PRIVATE
 class MVVM_MainActivityPresenter(application: Application) : AndroidViewModel(application), IMainActivity.Presenter {
 
 
-    private val updateDB_Manager: UpdateDatabaseManager
-
-    private val offlineDB_manager: OfflineDatabaseManager
-
-    var ldt_ro_chemicalEquation = MutableLiveData<ArrayList<RO_ChemicalEquation>>()
 
     private var onThemeChangeListener: OnThemeChangeListener? = null
 
-    private var recentSearching_ce_data_manager: RecentSearching_CE_Data_Manager? = null
+    // Search Mode
+    //
+    //
+        private val offlineDB_manager: OfflineDatabaseManager
+        private var recentSearching_ce_data_manager: RecentSearching_CE_Data_Manager? = null
+        var ldt_ro_chemicalEquation = MutableLiveData<ArrayList<RO_ChemicalEquation>>()
+        private val updateDB_Manager: UpdateDatabaseManager
+    //
+    //
+    // Search Mode
 
     private var onUpdateChecked: MVVM_MainActivityPresenter.OnUpdateCheckedListener? = null
 
@@ -120,7 +124,6 @@ class MVVM_MainActivityPresenter(application: Application) : AndroidViewModel(ap
         onThemeChangeListener!!.onThemeChange()
     }
 
-
     override fun setOnThemeChangeListener(theme: OnThemeChangeListener) {
         this.onThemeChangeListener = theme
     }
@@ -147,18 +150,6 @@ class MVVM_MainActivityPresenter(application: Application) : AndroidViewModel(ap
             }
         })
     }
-
-
-    /**
-     * @see MainActivity
-     * which implement this listeners to get Data
-     */
-    //
-    //    public interface DataLoadListener {
-    //
-    //        void onDataLoadSuccess(ArrayList<RO_ChemicalEquation> ro_chemicalEquations);
-    //
-    //    }
 
     interface OnUpdateCheckedListener {
 

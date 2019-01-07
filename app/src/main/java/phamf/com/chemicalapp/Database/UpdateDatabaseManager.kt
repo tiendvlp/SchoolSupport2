@@ -101,35 +101,32 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
         /*   ^   */
         /*  /^\  */
         /* / ^ \ */
-        val _version = version + 1
+        /*   ^   */  val _version = version + 1
         /*   ^   */
-        /*   ^   */    if (_version > last_version) {
-            /*   ^   */        if (onASectionUpdated != null) onASectionUpdated!!.on_A_Version_Updated_Success(last_version, true)
-            /*   ^   */        return
-            /*   ^   */
-        }
+        /*   ^   */  if (_version > last_version) {
+        /*   ^   */        if (onASectionUpdated != null) onASectionUpdated!!.on_A_Version_Updated_Success(last_version, true)
+        /*   ^   */        return
+        /*   ^   */  }
         /*   ^   */
         /*   ^   */    firebase_database.child(_version.toInt().toString()).addValueEventListener(object : ValueEventListener {
-            /*   ^   */        override/*   ^   */ fun onDataChange(dataSnapshot: DataSnapshot) {
-                /*   ^   */            //Download
-                /*   ^   */
-                val updateFile = dataSnapshot.getValue(UpdateFile::class.java)
-                /*   ^   */
-                /*   ^   */            try {
-                    /*   ^   */
-                    /*   ^   */                // "Update File" is retrieved
-                    /*   ^   */                assert(updateFile != null)
-                    /*   ^   */                processUpdateFile(updateFile)
-                    /*   ^   */                // firebase database get data asynchronously So can't use for loop to get
-                    /*   ^   */                // every update file on firebase
-                    /*   ^   */                // Solution is using Recursive : Đệ quy,
-                    /*   ^<<<<<<<<<<<<<<<<<<<<<*/ download_And_Process_UpdateFile(_version, last_version)
+        /*   ^   */        override/*   ^   */ fun onDataChange(dataSnapshot: DataSnapshot) {
+        /*   ^   */            //Download
+        /*   ^   */    val updateFile = dataSnapshot.getValue(UpdateFile::class.java)
+        /*   ^   */
+        /*   ^   */            try {
+        /*   ^   */
+        /*   ^   */                // "Update File" is retrieved
+        /*   ^   */                assert(updateFile != null)
+        /*   ^   */                processUpdateFile(updateFile)
+        /*   ^   */                // firebase database get data asynchronously So can't use for loop to get
+        /*   ^   */                // every update file on firebase
+        /*   ^   */                // Solution is using Recursive : Đệ quy,
+        /*   ^<<<<<<<<<<<<<<<<<<<<<*/ download_And_Process_UpdateFile(_version, last_version)
                     if (onASectionUpdated != null) onASectionUpdated!!.on_A_Version_Updated_Success(_version, false)
-                } catch (ex: Exception) {
-                    ex.printStackTrace()
-                }
-
-            }
+                                } catch (ex: Exception) {
+                                    ex.printStackTrace()
+                                }
+                    }
 
             override fun onCancelled(databaseError: DatabaseError) {}
         })
@@ -158,44 +155,78 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
             //Warning : must update "lessons" before update "chapters" because chapter will find
             // lessons in database depend on the lesson_id which update_file contains in updatefile.lessons
 
-            if (updateFile.lessons != null) {
-                process_Lessons(updateFile.lessons)
-            } else {
-                Log.e("Lessons ", "null")
+            try {
+                if (updateFile.lessons != null) {
+                    process_Lessons(updateFile.lessons)
+                } else {
+                    Log.e("Lessons ", "null")
+                }
+
+                if (updateFile.chapters != null) {
+                    process_Chapters(updateFile.chapters)
+                } else {
+                    Log.e("Chapters ", "null")
+                }
+            } catch (ex : Exception) {
+                Log.e("Error", " Lesson and Chapters Update")
+                ex.printStackTrace()
             }
 
-            if (updateFile.chapters != null) {
-                process_Chapters(updateFile.chapters)
-            } else {
-                Log.e("Chapters ", "null")
+            try {
+                if (updateFile.images != null) {
+                    process_Images(updateFile.images)
+                } else {
+                    Log.e("Images ", "null")
+                }
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+                Log.e("Error ", "Update Image")
             }
 
-            if (updateFile.images != null) {
-                process_Images(updateFile.images)
-            } else {
-                Log.e("Images ", "null")
+            try {
+
+                if (updateFile.dpdps != null) {
+                    process_DPDPs(updateFile.dpdps)
+                } else {
+                    Log.e("Dpdps ", "null")
+                }
+
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+                Log.e("Error", "Update DPDP")
             }
 
-            if (updateFile.dpdps != null) {
-                process_DPDPs(updateFile.dpdps)
-            } else {
-                Log.e("Dpdps ", "null")
+
+            try {
+                if (updateFile.chemical_equations != null) {
+                    Log.e("Chemical Equation size "," AAAAAAAA " + updateFile.chemical_equations.size.toString())
+                    process_Chemical_Equations(updateFile.chemical_equations)
+                } else {
+                    Log.e("Chemical equations ", "null")
+                }
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+                Log.e("Error", "Update Chemical Equation")
             }
 
-            if (updateFile.chemical_equations != null) {
-                process_Chemical_Equations(updateFile.chemical_equations)
-            } else {
-                Log.e("Chemical equations ", "null")
+
+            try {
+                if (updateFile.chemical_elements != null) {
+                    process_Chemical_Elements(updateFile.chemical_elements)
+                    Log.e("Chemical Element size ", updateFile.chemical_elements.size.toString())
+                } else {
+                    Log.e("Chemical Elements ", "null")
+                }
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+                Log.e("Error", "Update Chemical Element")
             }
 
-            if (updateFile.chemical_elements != null) {
-                process_Chemical_Elements(updateFile.chemical_elements)
-            } else {
-                Log.e("Chemical Elements ", "null")
-            }
+
+
 
             if (updateFile.update_data != null) {
-                processUpdateData(updateFile.update_data)
+                processUpdateData(updateFile.update_data!!)
             } else {
                 Log.e("Update data", "null")
             }
@@ -256,6 +287,7 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
 
     // Chemical Equation
     private fun process_Chemical_Equations(chemical_equations_list: ArrayList<ChemicalEquation>) {
+        Log.e("UPDATE CHEM EQUA", "WORK" + chemical_equations_list.size )
         val ro_chemicalEquations = ROConverter.toRO_CEs(chemical_equations_list)
         offlineDatabaseManager.addOrUpdateDataOf(RO_ChemicalEquation::class.java, ro_chemicalEquations)
     }

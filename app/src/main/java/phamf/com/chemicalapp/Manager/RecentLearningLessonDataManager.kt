@@ -34,15 +34,20 @@ class RecentLearningLessonDataManager(private val offlineDB_manager: OfflineData
 
     // This function works both data getter and recent learning lessons creator
     fun getData(onGetDataSuccess: OnGetDataSuccess?) {
-        var x : RealmChangeListener<Recent_LearningLessons> = object : RealmChangeListener<Recent_LearningLessons>{
+
+        var onQueryRecent_LearningLessons_Success : RealmChangeListener<Recent_LearningLessons> = object : RealmChangeListener<Recent_LearningLessons>{
             override fun onChange(recent_learningLessons: Recent_LearningLessons) {
                 recent_lessons = recent_learningLessons.recent_learning_lessons
-                val data = ArrayList<RO_Lesson>()
-                data.addAll(recent_lessons!!)
-                onGetDataSuccess?.onLoadSuccess(data)
+                if (onGetDataSuccess != null) {
+                    val data = ArrayList<RO_Lesson>()
+                    data.addAll(recent_lessons!!)
+                    onGetDataSuccess?.onLoadSuccess(data)
+                }
             }
         }
-        recent_learningLessons = offlineDB_manager.readAsyncOneOf(Recent_LearningLessons::class.java, x)
+
+        // Create for save order learning lesson in database, to show data to RecentLessonActivity
+        recent_learningLessons = offlineDB_manager.readAsyncOneOf(Recent_LearningLessons::class.java, onQueryRecent_LearningLessons_Success)
     }
 
     fun bringToTop(lesson: RO_Lesson) {

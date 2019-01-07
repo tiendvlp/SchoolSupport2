@@ -231,7 +231,7 @@
         android:id="@+id/top_background_search"
         android:layout_width="wrap_content"
         android:layout_height="78dp"
-        android:background="@drawable/top_background_search"
+        android:background="@drawable/a_top_back_ground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

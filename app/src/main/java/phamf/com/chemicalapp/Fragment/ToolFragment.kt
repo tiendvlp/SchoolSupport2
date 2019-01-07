@@ -5,11 +5,7 @@ import android.app.Activity
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil.setContentView
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,9 +17,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
 import butterknife.OnClick
-import com.schoolsupport.app.dmt91.schoolsupport.MainActivity
+import phamf.com.chemicalapp.MainActivity
 import io.realm.Realm
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_tool.*
 import kotlinx.android.synthetic.main.nav_view.*
 import phamf.com.chemicalapp.*
@@ -31,6 +26,10 @@ import phamf.com.chemicalapp.Abstraction.Interface.IMainActivity
 import phamf.com.chemicalapp.Abstraction.Interface.OnThemeChangeListener
 import phamf.com.chemicalapp.Adapter.Search_CE_RCV_Adapter
 import phamf.com.chemicalapp.CustomView.VirtualKeyBoardSensor
+import phamf.com.chemicalapp.LessonMenuActivity.Companion.CHEMICAL
+import phamf.com.chemicalapp.LessonMenuActivity.Companion.MATH
+import phamf.com.chemicalapp.LessonMenuActivity.Companion.PHYSICS
+import phamf.com.chemicalapp.LessonMenuActivity.Companion.LESSON_TYPE
 import phamf.com.chemicalapp.Manager.AppThemeManager
 import phamf.com.chemicalapp.Manager.FloatingSearchViewManager
 import phamf.com.chemicalapp.Manager.FontManager
@@ -40,7 +39,7 @@ import phamf.com.chemicalapp.ViewModel.MVVM_MainActivityPresenter
 import java.util.*
 /**
  * Presenter
- * @see MainActivityPresenter
+ * @see phamf.com.chemicalapp.ViewModel.MVVM_MainActivityPresenter
  */
 class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM_MainActivityPresenter.OnUpdateCheckedListener {
     override fun onCreateView(
@@ -52,6 +51,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         Realm.init(this.context)
 
         createNecessaryInfo()
@@ -74,13 +74,8 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
     }
 
-    fun addControls() {
 
-    }
 
-    fun addEvents() {
-
-    }
     companion object {
         internal val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 21
         @JvmStatic
@@ -123,10 +118,6 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     override fun onPause() {
         super.onPause()
         viewModel!!.pushCachingDataToDB()
@@ -138,11 +129,17 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
     }
 
     private fun addControl() {
-
+        // Search Mode
+        //
+        //
         rcv_search_adapter = Search_CE_RCV_Adapter(context!!)
         rcv_search_adapter!!.adaptFor(rcv_search)
         rcv_search_adapter!!.observe(edt_search)
         setEdt_SearchAdvanceFunctions()
+        //
+        //
+        // Search Mode
+
 
         // isOnNightMode was set by Presenter in loadtheme()
         sw_night_mode.isChecked = AppThemeManager.isOnNightMode
@@ -152,7 +149,185 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
     }
 
+    override fun addEvent() {
 
+        // Lý thuyết Toán
+        tool_btn_lth_toan.setOnClickListener {
+            var intent = Intent(activity!!, LessonMenuActivity::class.java)
+            intent.putExtra(LESSON_TYPE, MATH)
+            startActivity(intent)
+        }
+
+        // Lý thuyết Hóa
+        tool_btn_lth_hoa_hoc.setOnClickListener {
+            var intent = Intent(activity!!, LessonMenuActivity::class.java)
+            intent.putExtra(LESSON_TYPE, CHEMICAL)
+            startActivity(intent)
+        }
+
+        // Lý thuyết Lý
+        tool_btn_lth_vat_li.setOnClickListener {
+            var intent = Intent(activity!!, LessonMenuActivity::class.java)
+            intent.putExtra(LESSON_TYPE, PHYSICS)
+            startActivity(intent)
+        }
+
+        // Bài học gần đây
+        tool_btn_recent_lesson.setOnClickListener {
+            var intent = Intent(activity!!, RecentLessonsActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Search phương trình hóa học
+        tool_btn_search_chem_equa.setOnClickListener {
+            startActivity(Intent(activity!!, SearchChemicalEquationActivity::class.java))
+        }
+
+        // Search từ điển nguyên tử, phân tử hóa học
+        tool_btn_chem_dictionary.setOnClickListener {
+            startActivity(Intent(activity!!, SearchCCoDictionaryActivity::class.java))
+        }
+
+        // Bảng tuần hoàng
+        tool_btn_bangtuanhoang.setOnClickListener {
+            startActivity(Intent(activity!!, BangTuanHoangActivity::class.java))
+        }
+
+        // Đồng phân danh pháp
+        tool_btn_dpdp.setOnClickListener {
+            startActivity(Intent(activity!!, DPDPMenuActivity::class.java))
+        }
+
+        // Khảo sát đồ thị hàm số dạng đặc biệt
+        tool_btn_khao_sat_dths.setOnClickListener {
+            startActivity(Intent(activity!!, SpecialGraphMenuActivity::class.java))
+        }
+
+        // Vẽ đồ thị tự do
+        tool_btn_draw_graph.setOnClickListener {
+            startActivity(Intent(activity!!, GraphMenuActivity::class.java))
+        }
+
+
+        // Truy cập nhanh
+        tool_btn_quick_search.setOnClickListener {
+            floatingSearchViewManager!!.init()
+        }
+
+
+        /********************************************/
+
+        // Search Mode
+        //
+        btn_search!!.setOnClickListener { v ->
+            if (!isOnSearchMode) {
+                showSoftKeyboard()
+                search_chem_equation_view_parent!!.startAnimation(fade_in)
+                isOnSearchMode = true
+            }
+        }
+
+        bg_escape_search_mode!!.setOnClickListener { v ->
+            search_chem_equation_view_parent!!.startAnimation(fade_out)
+            edt_search!!.setText("")
+            hideSoftKeyboard(activity!!)
+            isOnSearchMode = false
+        }
+        //
+        // Search Mode
+
+
+        // Setting Mode
+        btn_setting!!.setOnClickListener { v -> main_activity_drawer_layout!!.openDrawer(nav_view!!, true) }
+
+        // Search Mode
+        btn_top_turn_off_search!!.setOnClickListener { v -> bg_escape_search_mode!!.performClick() }
+
+        btn_recent_lesson!!.setOnClickListener { v -> startActivity(Intent(activity!!, RecentLessonsActivity::class.java)) }
+
+        btn_bangtuanhoan!!.setOnClickListener { v -> startActivity(Intent(activity!!, BangTuanHoangActivity::class.java)) }
+
+        // Search Mode
+        btn_quick_search!!.setOnClickListener { v ->
+            floatingSearchViewManager!!.init()
+
+        }
+
+        // Search Mode
+        btn_turnOff_search!!.setOnClickListener { v ->
+            search_chem_equation_view_parent!!.startAnimation(fade_out)
+            edt_search!!.setText("")
+        }
+
+        btn_lesson!!.setOnClickListener { v -> startActivity(Intent(activity!!, LessonMenuActivity::class.java)) }
+
+        btn_dongphan_danhphap!!.setOnClickListener { v -> startActivity(Intent(activity!!, DPDPMenuActivity::class.java)) }
+
+
+        txt_lesson!!.setOnClickListener { v -> startActivity(Intent(activity!!, LessonMenuActivity::class.java)) }
+
+
+        // Search Mode
+        //
+        //
+        var on_search_adapter_item_click = object : Search_CE_RCV_Adapter.OnItemClickListener {
+            override fun OnItemClickListener(view: View, equation: RO_ChemicalEquation, position: Int) {
+                // Do this to bring the just chosen equation to top of the list
+                rcv_search_adapter!!.list!!.remove(equation)
+                rcv_search_adapter!!.list!!.add(0, equation)
+                rcv_search_adapter!!.notifyDataSetChanged()
+                // Update the top in database
+                viewModel!!.bringToTop(equation)
+
+                val intent = Intent(activity!!, ChemicalEquationActivity::class.java)
+                intent.putExtra(ChemicalEquationActivity.CHEMICAL_EQUATION, equation)
+                startActivity(intent)
+            }
+
+        }
+        rcv_search_adapter!!.setOnItemClickListener (on_search_adapter_item_click)
+        //
+        //
+        // Search Mode
+
+        btn_set_as_defaut!!.setOnClickListener { v -> viewModel!!.setThemeDefaut() }
+
+        var onUpdateSuccess = object : MVVM_MainActivityPresenter.OnUpdateSuccess {
+            override fun onUpdateSuccess() {
+                startActivity(Intent(activity!!, MainActivity::class.java))
+
+            }
+
+        }
+
+
+        // Update Mode
+        //
+        //
+        btn_update!!.setOnClickListener { v ->
+            viewModel!!.update(onUpdateSuccess)
+        }
+        //
+        //
+        // Update MOde
+
+
+        sw_night_mode!!.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                bg_night_mode!!.visibility = View.VISIBLE
+                viewModel!!.turnOnNightMode()
+            } else {
+                bg_night_mode!!.visibility = View.GONE
+                viewModel!!.turnOffNightMode()
+            }
+        }
+
+
+    }
+
+    // Setting Mode
+    //
+    //
     @OnClick(R.id.btn_background_color_1, R.id.btn_background_color_2, R.id.btn_background_color_3, R.id.btn_background_color_4, R.id.btn_background_color_5, R.id.btn_background_color_6)
     fun onBackgroundColorButtonsClick(v: Button) {
         var color = 0
@@ -229,6 +404,10 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         AppThemeManager.setTheme(theme)
         setTheme()
     }
+    //
+    //
+    //
+    // Setting Mode
 
     private fun setUpViewModel() {
 
@@ -250,98 +429,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         overlayPermissionManager = RequireOverlayPermissionManager(activity!!)
     }
 
-    override fun addEvent() {
-
-        btn_search!!.setOnClickListener { v ->
-            if (!isOnSearchMode) {
-                showSoftKeyboard()
-                rcv_search_adapter!!.isSearching(true)
-                search_chem_equation_view_parent!!.startAnimation(fade_in)
-                isOnSearchMode = true
-            }
-        }
-
-        bg_escape_search_mode!!.setOnClickListener { v ->
-            search_chem_equation_view_parent!!.startAnimation(fade_out)
-            edt_search!!.setText("")
-            rcv_search_adapter!!.isSearching(false)
-            hideSoftKeyboard(activity!!)
-            isOnSearchMode = false
-        }
-
-        btn_setting!!.setOnClickListener { v -> main_activity_drawer_layout!!.openDrawer(nav_view!!, true) }
-
-        btn_top_turn_off_search!!.setOnClickListener { v -> bg_escape_search_mode!!.performClick() }
-
-        btn_recent_lesson!!.setOnClickListener { v -> startActivity(Intent(activity!!, RecentLessonsActivity::class.java)) }
-
-        btn_bangtuanhoan!!.setOnClickListener { v -> startActivity(Intent(activity!!, BangTuanHoangActivity::class.java)) }
-
-        btn_quick_search!!.setOnClickListener { v ->
-            floatingSearchViewManager!!.init()
-
-        }
-
-        btn_turnOff_search!!.setOnClickListener { v ->
-            search_chem_equation_view_parent!!.startAnimation(fade_out)
-            edt_search!!.setText("")
-            rcv_search_adapter!!.isSearching(false)
-        }
-
-        btn_lesson!!.setOnClickListener { v -> startActivity(Intent(activity!!, LessonMenuActivity::class.java)) }
-
-        btn_dongphan_danhphap!!.setOnClickListener { v -> startActivity(Intent(activity!!, DPDPMenuActivity::class.java)) }
-
-
-        txt_lesson!!.setOnClickListener { v -> startActivity(Intent(activity!!, LessonMenuActivity::class.java)) }
-
-        var on_search_adapter_item_click = object : Search_CE_RCV_Adapter.OnItemClickListener {
-            override fun OnItemClickListener(view: View, equation: RO_ChemicalEquation, position: Int) {
-                // Do this to bring the just chosen equation to top of the list
-                rcv_search_adapter!!.list!!.remove(equation)
-                rcv_search_adapter!!.list!!.add(0, equation)
-                rcv_search_adapter!!.notifyDataSetChanged()
-                // Update the top in database
-                viewModel!!.bringToTop(equation)
-
-                val intent = Intent(activity!!, ChemicalEquationActivity::class.java)
-                intent.putExtra(ChemicalEquationActivity.CHEMICAL_EQUATION, equation)
-                startActivity(intent)
-            }
-
-        }
-        rcv_search_adapter!!.setOnItemClickListener (on_search_adapter_item_click)
-
-
-        btn_set_as_defaut!!.setOnClickListener { v -> viewModel!!.setThemeDefaut() }
-
-        var onUpdateSuccess = object : MVVM_MainActivityPresenter.OnUpdateSuccess {
-            override fun onUpdateSuccess() {
-                startActivity(Intent(activity!!, MainActivity::class.java))
-
-            }
-
-        }
-
-        btn_update!!.setOnClickListener { v ->
-            Log.e("Common bro ?", "Nà ní")
-            viewModel!!.update(onUpdateSuccess)
-        }
-
-
-        sw_night_mode!!.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                bg_night_mode!!.visibility = View.VISIBLE
-                viewModel!!.turnOnNightMode()
-            } else {
-                bg_night_mode!!.visibility = View.GONE
-                viewModel!!.turnOffNightMode()
-            }
-        }
-
-
-    }
-
+    // Search Here
     override fun loadAnim() {
         fade_in = AnimationUtils.loadAnimation(activity!!, R.anim.fade_in)
         fade_out = AnimationUtils.loadAnimation(activity!!, R.anim.fade_out)
@@ -359,6 +447,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
             }
         })
+
         fade_out.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationEnd(animation: Animation) {
                 search_chem_equation_view_parent!!.visibility = View.GONE
@@ -374,19 +463,24 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         })
     }
 
+
     override fun setFont() {
         txt_lesson!!.typeface = FontManager.myriad_pro_bold
         txt_recent_lesson!!.typeface = FontManager.myriad_pro_bold
         txt_dongphan_danhphap!!.typeface = FontManager.myriad_pro_bold
         txt_bangtuanhoang!!.typeface = FontManager.myriad_pro_bold
-        txt_quick_search!!.typeface = FontManager.myriad_pro_bold
 
+        // Search Mode
+        txt_quick_search!!.typeface = FontManager.myriad_pro_bold
         edt_search!!.typeface = FontManager.myriad_pro_bold
     }
 
     override fun setTheme() {
+
         if (AppThemeManager.isCustomingTheme or AppThemeManager.isUsingAvailableThemes) {
             txt_lesson!!.setTextColor(context!!.getColor(AppThemeManager.getTextColor_()))
+
+            // Search Mode
             txt_quick_search!!.setTextColor(context!!.getColor(AppThemeManager.getTextColor_()))
             txt_bangtuanhoang!!.setTextColor(context!!.getColor(AppThemeManager.getTextColor_()))
             txt_dongphan_danhphap!!.setTextColor(context!!.getColor(AppThemeManager.getTextColor_()))
@@ -400,17 +494,17 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         }
     }
 
+    // Search Mode
+    //
+    //
     override fun setEdt_SearchAdvanceFunctions() {
 
         edt_search!!.setOnClickListener { v ->
             if (!hasHiddenNavAndStatusBar) {
-                //                    fullScreenManager.hideNavAndStatusBar_After(1000);
-//                makeFullScreenAfter(1000)
                 hasHiddenNavAndStatusBar = true
             }
             if (!isOnSearchMode) {
                 search_chem_equation_view_parent!!.startAnimation(fade_in)
-                rcv_search_adapter!!.isSearching(true)
                 isOnSearchMode = true
             }
         }
@@ -418,8 +512,6 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
         edt_search!!.setOnFocusChangeListener { v, hasFocus ->
             if (!hasHiddenNavAndStatusBar) {
-                //  fullScreenManager.hideNavAndStatusBar_After(1000);
-//                makeFullScreenAfter(1000)
                 hasHiddenNavAndStatusBar = true
             }
         }
@@ -432,7 +524,14 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         })
 
     }
+    //
+    //
+    // Search Mode
 
+
+    // Search Mode
+    //
+    //
     override fun hideSoftKeyboard(activity: Activity) {
         virtualKeyboardManager!!.hideSoftInputFromWindow(Objects.requireNonNull(activity.currentFocus).windowToken, 0)
     }
@@ -442,6 +541,10 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
         virtualKeyboardManager!!.toggleSoftInput(0, InputMethodManager.SHOW_IMPLICIT)
         Toast.makeText(context!!, "Show", Toast.LENGTH_SHORT).show()
     }
+    //
+    //
+    //
+    // Search Mode
 
     override fun onThemeChange() {
         setTheme()
@@ -449,6 +552,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
     @SuppressLint("SetTextI18n")
     override fun onStatusChecked(isAvailable: Boolean, version: Long) {
+
         if (isAvailable) {
             txt_update_status!!.text = "Available"
             txt_update_version!!.text = "1.$version"
@@ -456,11 +560,14 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
             txt_update_version!!.visibility = View.VISIBLE
             btn_update!!.visibility = View.VISIBLE
             btn_update!!.isClickable = true
+            btn_setting.background = resources.getDrawable(R.drawable.a_btn_update_available)
+            Toast.makeText(context, "Có bản cập nhật dữ liệu mới, phiên bản 1.$version", Toast.LENGTH_LONG).show()
         } else {
             txt_update_status!!.text = "up to date"
             btn_update!!.visibility = View.GONE
             btn_update!!.isClickable = false
         }
+
         Log.e("Version", version.toString() + "")
     }
 

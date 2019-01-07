@@ -7,11 +7,14 @@ import io.realm.annotations.PrimaryKey
 import phamf.com.chemicalapp.RO_Model.RO_Chapter
 import phamf.com.chemicalapp.RO_Model.RO_Lesson
 
+@Suppress("unused")
 class Chapter {
 
     internal var id: Int = 0
 
     lateinit var name: String
+
+    lateinit var type : String
 
     // This list contains id of lessons used for finding them in database and then bind
     // to ro_lessons field below
@@ -19,6 +22,8 @@ class Chapter {
 
     var ro_lessons = ArrayList<RO_Lesson>()
 
+    //used in firebase
+    constructor()
 
     constructor(id: Int, name: String, lessons: ArrayList<Long>) {
         this.id = id
@@ -26,9 +31,6 @@ class Chapter {
         this.lessons = lessons
     }
 
-    constructor() {
-
-    }
 
     fun getid(): Int {
         return id

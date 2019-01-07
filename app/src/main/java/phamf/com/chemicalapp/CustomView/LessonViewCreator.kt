@@ -27,6 +27,7 @@ import phamf.com.chemicalapp.Supporter.UnitConverter
 
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import phamf.com.chemicalapp.Supporter.UnitConverter.DpToPixel
+import java.lang.Exception
 
 class LessonViewCreator(private val viewPager_adapter: ViewPager_Lesson_Adapter) {
 
@@ -34,7 +35,6 @@ class LessonViewCreator(private val viewPager_adapter: ViewPager_Lesson_Adapter)
     (private val context: Context, private val parent: LinearLayout) {
 
         internal var offlineDatabaseManager: OfflineDatabaseManager
-
 
         init {
             this.offlineDatabaseManager = OfflineDatabaseManager(context)
@@ -96,70 +96,79 @@ class LessonViewCreator(private val viewPager_adapter: ViewPager_Lesson_Adapter)
         fun addImageContent(imageId: String,
                             mLeft: Int, mTop: Int, mRight: Int, mBottom: Int) {
 
-            val image_resouces = offlineDatabaseManager.readOneObjectOf(RO_Chemical_Image::class.java, "link", imageId)
-            val byte_code_resouces = image_resouces!!.byte_code_resouces
-            val image_bitmap = BitmapFactory.decodeByteArray(byte_code_resouces, 0, byte_code_resouces.size)
-            val ratio = image_bitmap.width.toDouble() / image_bitmap.height.toDouble()
+            try {
+                val image_resouces = offlineDatabaseManager.readOneObjectOf(RO_Chemical_Image::class.java, "link", imageId)
+                val byte_code_resouces = image_resouces!!.byte_code_resouces
+                val image_bitmap = BitmapFactory.decodeByteArray(byte_code_resouces, 0, byte_code_resouces.size)
+                val ratio = image_bitmap.width.toDouble() / image_bitmap.height.toDouble()
 
-            val imageView = ImageView(context)
-            imageView.background = BitmapDrawable(context.resources, image_bitmap)
-            val params = LinearLayout.LayoutParams(screenWidthPixels.toInt(), (screenWidthPixels / ratio).toInt())
-            params.setMargins(bt_mLeft, bt_mTop, bt_mRight, bt_mBottom)
-            imageView.layoutParams = params
-            parent.addView(imageView)
+                val imageView = ImageView(context)
+                imageView.background = BitmapDrawable(context.resources, image_bitmap)
+                val params = LinearLayout.LayoutParams(screenWidthPixels.toInt(), (screenWidthPixels / ratio).toInt())
+                params.setMargins(bt_mLeft, bt_mTop, bt_mRight, bt_mBottom)
+                imageView.layoutParams = params
+                parent.addView(imageView)
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+            }
+
         }
 
         fun addView(content: String) {
-            val component_list = content.split(COMPONENT_DEVIDER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-            for (component_ in component_list) {
-                var component : String = component_;
-                if (component.trim { it <= ' ' } != "") {
-                    component = component.trim { it <= ' ' }
-                    if (component.startsWith(IMAGE)) {
-                        try {
-                            //all Image has form like <<picture<> link <> width <> height
+            try {
+                val component_list = content.split(COMPONENT_DEVIDER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                for (component_ in component_list) {
+                    var component : String = component_;
+                    if (component.trim { it <= ' ' } != "") {
+                        component = component.trim { it <= ' ' }
+                        if (component.startsWith(IMAGE)) {
+                            try {
+                                //all Image has form like <<picture<> link <> width <> height
 
-                            val image_info = component.split(TAG_DIVIDER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                            val id = image_info[IMAGE_LINK]
-                            val width = Integer.valueOf(image_info[IMAGE_WIDTH])
-                            val height = Integer.valueOf(image_info[IMAGE_HEIGHT])
+                                val image_info = component.split(TAG_DIVIDER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                                val id = image_info[IMAGE_LINK]
+                                val width = Integer.valueOf(image_info[IMAGE_WIDTH])
+                                val height = Integer.valueOf(image_info[IMAGE_HEIGHT])
 
-                            addImageContent(id,
-                                    DpToPixel(10),
-                                    DpToPixel(10),
-                                    DpToPixel(10),
-                                    DpToPixel(10))
-                        } catch (ex: NumberFormatException) {
-                            ex.printStackTrace()
-                            Log.e("Error when add image", "Đã xảy ra lỗi khi xử lí ảnh")
-                            Log.e("Error when add image", "Error happened when process image")
+                                addImageContent(id,
+                                        DpToPixel(10),
+                                        DpToPixel(10),
+                                        DpToPixel(10),
+                                        DpToPixel(10))
+                            } catch (ex: NumberFormatException) {
+                                ex.printStackTrace()
+                                Log.e("Error when add image", "Đã xảy ra lỗi khi xử lí ảnh")
+                                Log.e("Error when add image", "Error happened when process image")
+                            }
+
+                        } else if (component.startsWith(SMALL_TITLE)) {
+
+                            val small_title_info = process_GetTextInfo(component)
+                            addSmallTitle(small_title_info[TEXT_CONTENT], small_title_info[TEXT_STYLE])
+
+                        } else if (component.startsWith(BIG_TITLE)) {
+
+                            val big_title_info = process_GetTextInfo(component)
+
+                            addBigTitle(big_title_info[TEXT_CONTENT], big_title_info[TEXT_STYLE])
+
+                        } else if (component.startsWith(SMALLER_TITLE)) {
+
+                            val smaller_title_info = process_GetTextInfo(component)
+                            addSmallerTitle(smaller_title_info[TEXT_CONTENT], smaller_title_info[TEXT_STYLE])
+
+                        } else if (component.startsWith(CONTENT)) {
+
+                            val content_info = process_GetTextInfo(component)
+                            addContent(content_info[TEXT_CONTENT], content_info[TEXT_STYLE])
+
+                        } else {
+                            Log.e("wrong component " + Random().nextInt(9), component)
                         }
-
-                    } else if (component.startsWith(SMALL_TITLE)) {
-
-                        val small_title_info = process_GetTextInfo(component)
-                        addSmallTitle(small_title_info[TEXT_CONTENT], small_title_info[TEXT_STYLE])
-
-                    } else if (component.startsWith(BIG_TITLE)) {
-
-                        val big_title_info = process_GetTextInfo(component)
-
-                        addBigTitle(big_title_info[TEXT_CONTENT], big_title_info[TEXT_STYLE])
-
-                    } else if (component.startsWith(SMALLER_TITLE)) {
-
-                        val smaller_title_info = process_GetTextInfo(component)
-                        addSmallerTitle(smaller_title_info[TEXT_CONTENT], smaller_title_info[TEXT_STYLE])
-
-                    } else if (component.startsWith(CONTENT)) {
-
-                        val content_info = process_GetTextInfo(component)
-                        addContent(content_info[TEXT_CONTENT], content_info[TEXT_STYLE])
-
-                    } else {
-                        Log.e("wrong component " + Random().nextInt(9), component)
                     }
                 }
+            } catch (ex : Exception) {
+                ex.printStackTrace()
             }
         }
 

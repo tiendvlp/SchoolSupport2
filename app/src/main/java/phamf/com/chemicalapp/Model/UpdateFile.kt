@@ -16,7 +16,7 @@ class UpdateFile {
 
     lateinit var images: ArrayList<String>
 
-    lateinit var update_data: UpdateData
+    var update_data: UpdateData? = null
 
     constructor(chapters: ArrayList<Chapter>, lessons: ArrayList<Lesson>, dpdps: ArrayList<DPDP>, chemical_elements: ArrayList<Chemical_Element>, chemical_equations: ArrayList<ChemicalEquation>, images: ArrayList<String>) {
         this.chapters = chapters

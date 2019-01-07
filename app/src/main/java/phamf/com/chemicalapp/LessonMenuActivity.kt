@@ -71,7 +71,7 @@ class LessonMenuActivity : FullScreenActivity(), ILessonMenuActivity.View {
 
         addEvent()
 
-        viewModel.loadData()
+        viewModel.loadData(this)
     }
 
     override fun onPause() {
@@ -238,6 +238,14 @@ class LessonMenuActivity : FullScreenActivity(), ILessonMenuActivity.View {
 
     companion object {
         val LESSON_NAME = "lesson_name"
+
+        val LESSON_TYPE = "lesson_type"
+
+        val MATH = "T"
+
+        val PHYSICS = "L"
+
+        val CHEMICAL = "H"
     }
 
 }

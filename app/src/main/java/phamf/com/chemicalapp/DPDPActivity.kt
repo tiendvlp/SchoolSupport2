@@ -3,28 +3,19 @@ package phamf.com.chemicalapp
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.support.constraint.ConstraintLayout
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.ListView
-import android.widget.TextView
 
-import butterknife.BindView
 import butterknife.ButterKnife
-import com.schoolsupport.app.dmt91.schoolsupport.MainActivity
 import kotlinx.android.synthetic.main.activity_dpdp.*
 import phamf.com.chemicalapp.Abstraction.Interface.IDPDPActivity
 import phamf.com.chemicalapp.Abstraction.SpecialDataType.QuickChangeItemListViewAdapter
 import phamf.com.chemicalapp.Adapter.QuickChange_Organic_Adapter
 import phamf.com.chemicalapp.CustomView.LessonViewCreator
 import phamf.com.chemicalapp.Manager.AppThemeManager
-import phamf.com.chemicalapp.Model.OrganicMolecule
 //import phamf.com.chemicalapp.Presenter.DPDPActivityPresenter
-import phamf.com.chemicalapp.RO_Model.RO_DPDP
 import phamf.com.chemicalapp.RO_Model.RO_OrganicMolecule
 import phamf.com.chemicalapp.ViewModel.MVVM_DPDPActivityPresenter
 

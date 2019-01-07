@@ -13,6 +13,7 @@ import phamf.com.chemicalapp.Abstraction.Interface.ILessonMenuActivity
 import phamf.com.chemicalapp.Database.OfflineDatabaseManager
 import phamf.com.chemicalapp.LessonMenuActivity
 import phamf.com.chemicalapp.Manager.RecentLearningLessonDataManager
+import phamf.com.chemicalapp.Model.SupportModel.LessonMenuDataGetter
 import phamf.com.chemicalapp.RO_Model.RO_Chapter
 import phamf.com.chemicalapp.RO_Model.RO_Lesson
 
@@ -31,17 +32,18 @@ class MVVM_LessonMenuActivityPresenter(application: Application) : AndroidViewMo
 
     internal var application: Application? = application
 
-    override fun loadData() {
+    override fun loadData(view : LessonMenuActivity) {
 
         offlineDB_manager = OfflineDatabaseManager(application!!)
 
         recentLearningLessonDataManager = RecentLearningLessonDataManager(offlineDB_manager!!)
+
         // Call this function to create some data for RecentLearningLessonDataManager class,
         // look inside this method to get more info
         recentLearningLessonDataManager!!.getData(null)
 
-
-        data = offlineDB_manager!!.readAsyncAllDataOf(RO_Chapter::class.java, RealmChangeListener {
+        var lesson_type = LessonMenuDataGetter(view).data
+        data = offlineDB_manager!!.readAsyncSomeDataOf(RO_Chapter::class.java, "type", lesson_type, RealmChangeListener {
             ro_chapters ->
             l_data.setValue(data)
         })

@@ -18,7 +18,6 @@ class RecentSearching_CE_Data_Manager(private val offline_DBManager: OfflineData
 
     init {
 
-
         // Afraid of this code block is executed after the one beneath
         if (offline_DBManager.readOneOf(Recent_SearchingCEs::class.java) == null) {
             val recent_searchingCEs = Recent_SearchingCEs()

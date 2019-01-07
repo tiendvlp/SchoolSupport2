@@ -13,6 +13,7 @@ import phamf.com.chemicalapp.ChemicalEquationActivity
 import phamf.com.chemicalapp.ChemicalEquationActivity.Companion.CHEMICAL_EQUATION
 import phamf.com.chemicalapp.Database.OfflineDatabaseManager
 import phamf.com.chemicalapp.Manager.RecentSearching_CE_Data_Manager
+import phamf.com.chemicalapp.Model.SupportModel.ChemicalEquationDataGetter
 import phamf.com.chemicalapp.RO_Model.RO_ChemicalEquation
 
 /**
@@ -40,11 +41,3 @@ class MVVM_ChemicalEquationActivityPresenter(view: Application) : AndroidViewMod
 
 }
 
-internal class ChemicalEquationDataGetter(var view: Activity) {
-
-    val data: RO_ChemicalEquation?
-        get() {
-            val bundle = view.intent.extras
-            return bundle!!.getParcelable(CHEMICAL_EQUATION)
-        }
-}

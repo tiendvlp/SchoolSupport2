@@ -9,9 +9,9 @@
         >
         <android.support.constraint.ConstraintLayout
             android:id="@+id/pre_view"
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <ImageView
                 android:id="@+id/top_background_search"
@@ -72,7 +72,7 @@
                 <ImageButton
                     android:id="@+id/btn_lesson"
                     android:layout_width="50dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/lesson_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,6 @@
                     app:layout_constraintVertical_bias="0.0" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -171,7 +170,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
@@ -207,7 +205,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/linearLayout5"
@@ -248,9 +245,6 @@
 
             </LinearLayout>
 
-
-
-
             <Button
                 android:id="@+id/btn_search"
                 android:layout_width="31dp"
@@ -284,21 +278,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.9945" />
 
-
             <Button
                 android:id="@+id/btn_setting"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginEnd="4dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/setting_icon"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/a_btn_up_to_date"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.111"
+                app:layout_constraintHorizontal_bias="0.953"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.9945" />
+                app:layout_constraintVertical_bias="0.994" />
 
             <TextView
                 android:id="@+id/bg_edt_search"
@@ -335,7 +328,6 @@
                 app:layout_constraintStart_toEndOf="@+id/bg_search_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
-
 
             <RelativeLayout
                 android:id="@+id/search_chem_equation_view_parent"
@@ -390,8 +382,603 @@
             </RelativeLayout>
 
 
-        </android.support.constraint.ConstraintLayout>
+            <ScrollView android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_lth_toan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_math_book_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:text="Lí thuyết toán học 12"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_lth_vatli"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_physic_book_button" />
+
+
+                            <LinearLayout
+                                android:id="@+id/tool_btn_lth_vat_li"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:text="Lí thuyết vật lí 12"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/tool_btn_lth_hoa_hoc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="14dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="14dp"
+                                    android:background="@drawable/a_book_button" />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    android:layout_marginTop="14dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="26dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="19dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginBottom="0dp"
+                                        android:text="Lí thuyết hóa học 12"
+                                        android:textColor="#2c1825"
+                                        android:textSize="20sp"
+                                        tools:layout_editor_absoluteY="34dp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:background="#e7e3e7" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_recent_lesson"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_recent_learning_lesson_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:text="Bài học gần đây"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_search_chem_equa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_search_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:foregroundGravity="center_vertical"
+                                    android:text="Tìm kiếm phương trình hóa học"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_chem_dictionary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_dictionary_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:foregroundGravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="Từ điển hợp chất hóa học"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_dpdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_dpdp_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:foregroundGravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="Đồng phân danh pháp"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tool_btn_bangtuanhoang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_bang_tuan_hoang_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:foregroundGravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="Bảng tuần hoàn"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_khao_sat_dths"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="14dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="14dp"
+                                    android:background="@drawable/a_khao_sat_do_thi_button" />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="60dp"
+                                    android:layout_marginTop="14dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="26dp"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="19dp"
+                                        android:layout_marginEnd="8dp"
+                                        android:layout_marginBottom="0dp"
+                                        android:foregroundGravity="center_vertical"
+                                        android:gravity="center"
+                                        android:text="Khảo sát đồ thị hàm số đặc biệt"
+                                        android:textColor="#2c1825"
+                                        android:textSize="20sp"
+                                        tools:layout_editor_absoluteY="34dp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:background="#e7e3e7" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tool_btn_draw_graph"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_draw_graph_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:foregroundGravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="Vẽ đồ thị hàm số"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tool_btn_quick_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="14dp"
+                                android:background="@drawable/a_quick_search_button" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="14dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="26dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="19dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:foregroundGravity="center_vertical"
+                                    android:gravity="center"
+                                    android:text="Tìm kiếm nhanh"
+                                    android:textColor="#2c1825"
+                                    android:textSize="20sp"
+                                    tools:layout_editor_absoluteY="34dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#e7e3e7" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/bg_night_mode"

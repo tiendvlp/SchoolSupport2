@@ -20,6 +20,7 @@ import phamf.com.chemicalapp.Abstraction.AbstractClass.RCV_Menu_Adapter
 import phamf.com.chemicalapp.Abstraction.Interface.IRecentLessonActivity
 import phamf.com.chemicalapp.Adapter.Lesson_Menu_Adapter
 import phamf.com.chemicalapp.Manager.AppThemeManager
+import phamf.com.chemicalapp.Manager.FontManager
 import phamf.com.chemicalapp.Manager.RecentSearching_CE_Data_Manager
 //import phamf.com.chemicalapp.Presenter.RecentLessonActivityPresenter
 import phamf.com.chemicalapp.RO_Model.RO_Lesson
@@ -33,17 +34,7 @@ import phamf.com.chemicalapp.ViewModel.MVVM_RecentLessonActivityPresenter
 
 class RecentLessonsActivity : FullScreenActivity() {
 
-
     lateinit var rcv_recent_lesson_menu_adapter: Lesson_Menu_Adapter
-
-//    @BindView(R.id.parent_recent_learning_lesson_activity)
-//    internal var parent_recent_learning_lesson_activity: ConstraintLayout? = null
-
-//    @BindView(R.id.bg_night_mode_recent_learning_lesson_recent_learning_lesson)
-//    internal var bg_night_mode_recent_learning_lesson: TextView? = null
-
-//    @BindView(R.id.btn_recent_lesson_back)
-//    internal var btn_back: Button? = null
 
     lateinit var viewModel: MVVM_RecentLessonActivityPresenter
 
@@ -73,6 +64,10 @@ class RecentLessonsActivity : FullScreenActivity() {
     private fun setUpViewModel() {
         viewModel = ViewModelProviders.of(this).get(MVVM_RecentLessonActivityPresenter::class.java)
         viewModel.ldt_recent_lessons.observe(this, Observer <ArrayList<RO_Lesson>>{ recent_lessons -> rcv_recent_lesson_menu_adapter.setData(recent_lessons!!) })
+    }
+
+    fun setFont () {
+        txt_recent_lesson_title.typeface = FontManager.calibri
     }
 
     fun addControl() {
