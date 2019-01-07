@@ -127,8 +127,6 @@ class LessonViewCreator(private val viewPager_adapter: ViewPager_Lesson_Adapter)
 
                                 val image_info = component.split(TAG_DIVIDER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                                 val id = image_info[IMAGE_LINK]
-                                val width = Integer.valueOf(image_info[IMAGE_WIDTH])
-                                val height = Integer.valueOf(image_info[IMAGE_HEIGHT])
 
                                 addImageContent(id,
                                         DpToPixel(10),
