@@ -28,7 +28,7 @@ interface ILessonMenuActivity {
      */
     interface Presenter {
 
-        fun loadData()
+        fun loadData(view : LessonMenuActivity)
 
         fun pushCachingDataToDB()
 

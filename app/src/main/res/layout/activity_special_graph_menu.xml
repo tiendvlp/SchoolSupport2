@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SpecialGraphMenuActivity">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/special_graph_graph_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/special_graph_bac_4"
+            android:layout_width="350dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="188dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.056"
+            app:srcCompat="@drawable/a_ngu_thuc_bac_4" />
+
+        <ImageView
+            android:id="@+id/special_graph_bac_2"
+            android:layout_width="225dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.069"
+            app:srcCompat="@drawable/a_tam_thuc_bac_2" />
+
+        <ImageView
+            android:id="@+id/special_graph_huu_ti_bac_1"
+            android:layout_width="100dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483"
+            app:srcCompat="@drawable/a_huu_ti_bac_1" />
+
+        <ImageView
+            android:id="@+id/special_graph_bac_3"
+            android:layout_width="280dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:srcCompat="@drawable/a_tu_thuc_bac_3" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/special_graph_bac_4_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:background="#ffffff"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <LinearLayout
+            android:id="@+id/bac_4_a_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/bac_4_a_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_a_equal" />
+
+            <EditText
+                android:id="@+id/bac_4_a_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_4_b_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:layout_constraintVertical_bias="0.11">
+
+            <ImageView
+                android:id="@+id/bac_4_b_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_b_equal" />
+
+            <EditText
+                android:id="@+id/bac_4_b_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_4_d_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:layout_constraintVertical_bias="0.333">
+
+            <ImageView
+                android:id="@+id/bac_4_d_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_d_equal" />
+
+            <EditText
+                android:id="@+id/bac_4_d_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_4_e_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:layout_constraintVertical_bias="0.453">
+
+            <ImageView
+                android:id="@+id/bac_4_e_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_e_equal" />
+
+            <EditText
+                android:id="@+id/bac_4_e_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_4_c_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:layout_constraintVertical_bias="0.219">
+
+            <ImageView
+                android:id="@+id/bac_4_c_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_c_equal" />
+
+            <EditText
+                android:id="@+id/bac_4_c_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="391dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/a_ngu_thuc_bac_4" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/special_graph_bac_3_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:background="#ffffff"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <LinearLayout
+            android:id="@+id/bac_3_a_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/bac_3_a_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_a_equal" />
+
+            <EditText
+                android:id="@+id/bac_3_a_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_3_b_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+            app:layout_constraintVertical_bias="0.11">
+
+            <ImageView
+                android:id="@+id/bac_3_b_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_b_equal" />
+
+            <EditText
+                android:id="@+id/bac_3_b_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="-"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_3_d_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+            app:layout_constraintVertical_bias="0.333">
+
+            <ImageView
+                android:id="@+id/bac_3_d_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_d_equal" />
+
+            <EditText
+                android:id="@+id/bac_3_d_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_3_c_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+            app:layout_constraintVertical_bias="0.219">
+
+            <ImageView
+                android:id="@+id/bac_3_c_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_c_equal" />
+
+            <EditText
+                android:id="@+id/bac_3_c_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/normal_graph_bottom_navigation"
+            android:layout_width="308dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/a_tu_thuc_bac_3" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/special_graph_bac_2_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:background="#ffffff"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <LinearLayout
+            android:id="@+id/bac_2_a_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/bac_2_a_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_a_equal" />
+
+            <EditText
+                android:id="@+id/bac_2_a_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_2_b_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+            app:layout_constraintVertical_bias="0.11">
+
+            <ImageView
+                android:id="@+id/bac_2_b_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_b_equal" />
+
+            <EditText
+                android:id="@+id/bac_2_b_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bac_2_c_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+            app:layout_constraintVertical_bias="0.219">
+
+            <ImageView
+                android:id="@+id/bac_2_c_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_c_equal" />
+
+            <EditText
+                android:id="@+id/bac_2_c_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text=""
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="284dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/a_tam_thuc_bac_2" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/special_graph_ht_bac_1_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="0dp"
+        android:background="#ffffff"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <LinearLayout
+            android:id="@+id/ht_bac_1_a_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            app:layout_constraintVertical_bias="0.03">
+
+            <ImageView
+                android:id="@+id/ht_bac_1_a_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_a_equal" />
+
+            <EditText
+                android:id="@+id/ht_bac_1_a_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="1"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/normal_graph_bottom_navigation"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ht_bac_1_b_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            app:layout_constraintVertical_bias="0.136">
+
+            <ImageView
+                android:id="@+id/ht_bac_1_b_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_b_equal" />
+
+            <EditText
+                android:id="@+id/ht_bac_1_b_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="2"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView16"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ht_bac_1_d_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            app:layout_constraintVertical_bias="0.361">
+
+            <ImageView
+                android:id="@+id/ht_bac_1_d_eq"
+                android:layout_width="45dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_d_equal" />
+
+            <EditText
+                android:id="@+id/ht_bac_1_d_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="1"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView16"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ht_bac_1_c_equal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView16"
+            app:layout_constraintVertical_bias="0.25">
+
+            <ImageView
+                android:id="@+id/ht_bac_1_c_eq"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/a_c_equal" />
+
+            <EditText
+                android:id="@+id/ht_bac_1_c_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/input_field_for_special_graph"
+                android:inputType="textPersonName"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="3"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintTop_toBottomOf="@+id/imageView16"
+                app:layout_constraintVertical_bias="0.025" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="150dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/a_huu_ti_bac_1" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/special_graph_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="62dp">
+
+        <ImageButton
+            android:id="@+id/special_graph_btn_process_graph"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/a_process_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageButton
+            android:id="@+id/special_graph_btn_back_to_graph_menu"
+            android:layout_width="94dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/a_prev_back_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/special_graph_edt_startX"
+            android:layout_width="258dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/input_field_for_special_graph"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.861"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.618" />
+
+        <EditText
+            android:id="@+id/special_graph_edt_endX"
+            android:layout_width="258dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/input_field_for_special_graph"
+            android:ems="10"
+            android:inputType="numberSigned"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.861"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/special_graph_edt_startX"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="85dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/arial"
+            android:gravity="center"
+            android:text="Start X"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nornal_graph_edt_calc_content"
+            app:layout_constraintHorizontal_bias="0.32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.621" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="85dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/arial"
+            android:gravity="center"
+            android:text="End X"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/normal_graph_edt_start_x"
+            app:layout_constraintHorizontal_bias="0.32"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintVertical_bias="0.011" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/special_graph_btn_back"
+        android:layout_width="94dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/a_back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</android.support.constraint.ConstraintLayout>

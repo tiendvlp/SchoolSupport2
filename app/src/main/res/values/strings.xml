@@ -9,4 +9,8 @@
     <string name="facebook_app_id">587545718357824</string>
     <string name="fb_login_protocol_scheme">fb587545718357824</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_chem_equation_hint"><i>Cu + HCl ...</i></string>
+    <string name="online_search_chem_equation_hint"><i>Chất tham gia</i></string>
+    <string name="online_result_search_chem_equation_hint"><i>Chất sản phẩm</i></string>
+    <string name="search_chem_composition_hint"><i>Cu(OH)2...</i></string>
 </resources>

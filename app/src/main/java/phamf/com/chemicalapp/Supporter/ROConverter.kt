@@ -89,6 +89,7 @@ object ROConverter {
         val ro_ces = ArrayList<RO_ChemicalEquation>()
 
         for (chemicalEquation in equations) {
+            if (chemicalEquation != null)
             ro_ces.add(toRO_CE(chemicalEquation))
         }
 
@@ -120,6 +121,7 @@ object ROConverter {
     fun toRO_Chapter(chapter: Chapter): RO_Chapter {
         val ro_chapter = RO_Chapter()
         ro_chapter.name = chapter.name
+        ro_chapter.type = chapter.type
         ro_chapter.id = chapter.getid()
         ro_chapter.setLessons(chapter.ro_lessons)
         return ro_chapter

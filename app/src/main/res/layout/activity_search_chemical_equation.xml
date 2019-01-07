@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchChemicalEquationActivity">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/a_top_back_ground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.85"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="15dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016"
+        app:srcCompat="@drawable/a_icon_search" />
+
+    <phamf.com.chemicalapp.CustomView.VirtualKeyBoardSensor
+        android:id="@+id/sch_eq_edt_search_chem_eq"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:hint="@string/search_chem_equation_hint"
+        android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#bdaad9"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.013" />
+
+    <ImageView
+        android:id="@+id/sch_eq_btn_cancel_search"
+        android:layout_width="15dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/sch_eq_edt_search_chem_eq"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016"
+        app:srcCompat="@drawable/a_cancel_button" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sch_eq_rcv_chemical_equations"
+        android:layout_width="412dp"
+        android:layout_height="590dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/sch_eq_btn_back"
+        android:layout_width="85dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/a_back_button" />
+
+    <Button
+        android:id="@+id/sch_eq_btn_search_online"
+        android:layout_width="138dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/a_top_back_ground"
+        android:text="Search Online"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.318" />
+
+</android.support.constraint.ConstraintLayout>

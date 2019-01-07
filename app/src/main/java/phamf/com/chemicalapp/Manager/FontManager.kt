@@ -19,6 +19,10 @@ object FontManager {
 
     lateinit var arial: Typeface
 
+    lateinit var comic_sans : Typeface
+
+    lateinit var calibri : Typeface
+
     fun createFont(assetManager: AssetManager) {
 
         comfortaa_bold = Typeface.createFromAsset(assetManager, "fonts/comfortaa_bold.ttf")
@@ -30,6 +34,10 @@ object FontManager {
         myriad_pro_regular = Typeface.createFromAsset(assetManager, "fonts/myriad_pro_regular.ttf")
 
         arial = Typeface.createFromAsset(assetManager, "fonts/arial.ttf")
+
+        comic_sans = Typeface.createFromAsset(assetManager, "fonts/vnf_comic_sans.ttf")
+
+        calibri = Typeface.createFromAsset(assetManager, "fonts/calibri.ttf")
     }
 
 

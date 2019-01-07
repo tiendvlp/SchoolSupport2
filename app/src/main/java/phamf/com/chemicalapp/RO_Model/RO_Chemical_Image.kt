@@ -18,7 +18,5 @@ open class RO_Chemical_Image : RealmObject {
         this.byte_code_resouces = byte_code_resouces
     }
 
-    constructor() {
-
-    }
+    constructor()
 }

@@ -14,10 +14,11 @@ open class Recent_LearningLessons : RealmObject {
     @JvmField
     var recent_learning_lessons: RealmList<RO_Lesson> = RealmList()
 
-    constructor()
-
     constructor(id: Int, recent_learning_lessons: RealmList<RO_Lesson>) {
         this.recent_learning_lessons = recent_learning_lessons
         this.id = id
     }
+
+    constructor()
+
 }

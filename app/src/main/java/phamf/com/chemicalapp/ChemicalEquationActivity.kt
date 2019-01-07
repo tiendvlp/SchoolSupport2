@@ -92,7 +92,6 @@ class ChemicalEquationActivity : FullScreenActivity(), IChemicalEquationActivity
             override fun OnItemClickListener(view: View, equation: RO_ChemicalEquation, position: Int) {
                 bindData(equation)
                 chemical_equation_search_equation_search_view_parent!!.startAnimation(fade_out)
-                rcv_search_adapter!!.isSearching(false)
                 hideSoftKeyboard(this@ChemicalEquationActivity)
                 isOnSearchMode = false
             }
@@ -103,7 +102,6 @@ class ChemicalEquationActivity : FullScreenActivity(), IChemicalEquationActivity
             override fun onClick(v: View?) {
                 chemical_equation_search_equation_search_view_parent!!.startAnimation(fade_out)
                 edt_chem_search!!.setText("")
-                rcv_search_adapter!!.isSearching(false)
                 hideSoftKeyboard(this@ChemicalEquationActivity)
                 isOnSearchMode = false
             }
@@ -111,7 +109,7 @@ class ChemicalEquationActivity : FullScreenActivity(), IChemicalEquationActivity
         })
 
         btn_chemical_equation_back!!.setOnClickListener { v -> finish() }
-    }
+        }
 
     private fun bindData(equation: RO_ChemicalEquation) {
         txt_chem_equation!!.text = Html.fromHtml(equation.equation)
@@ -158,7 +156,6 @@ class ChemicalEquationActivity : FullScreenActivity(), IChemicalEquationActivity
             }
             if (!isOnSearchMode) {
                 chemical_equation_search_equation_search_view_parent!!.startAnimation(fade_in)
-                rcv_search_adapter!!.isSearching(true)
                 showSofKeyboard()
                 isOnSearchMode = true
             }

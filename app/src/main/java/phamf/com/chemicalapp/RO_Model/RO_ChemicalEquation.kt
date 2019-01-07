@@ -26,7 +26,7 @@ open class RO_ChemicalEquation (@PrimaryKey @JvmField
                                 var phenonema: String = "",
 
                                 @JvmField
-                                var how_to_do: String = "") : RealmObject(), Cloneable, Parcelable {
+                                var how_to_do: String = "") : RealmObject()/*, Cloneable*/, Parcelable {
 
     protected constructor(`in`: Parcel) : this() {
         id = `in`.readInt()
@@ -34,20 +34,6 @@ open class RO_ChemicalEquation (@PrimaryKey @JvmField
         condition = `in`.readString()
         phenonema = `in`.readString()
         how_to_do = `in`.readString()
-    }
-
-    @Throws(CloneNotSupportedException::class)
-    public override fun clone(): Any {
-        return super.clone()
-    }
-
-    override fun equals(obj: Any?): Boolean {
-        if (obj is RO_ChemicalEquation) {
-            if (obj.id == this.id) return true
-        } else {
-            Log.e("Class cast exeption", "")
-        }
-        return false
     }
 
     override fun describeContents(): Int {
