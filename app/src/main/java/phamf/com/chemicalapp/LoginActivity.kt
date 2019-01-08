@@ -247,7 +247,6 @@ class LoginActivity : AppCompatActivity(), FacebookCallback<LoginResult> {
     }
 
     private fun loginWithFirebaseFailed (task: Exception?) {
-        Toast.makeText(this, "Đăng nhập thất bại, vui lòng kiểm tra lại tài khoản hoặc kết nối của bạn", Toast.LENGTH_SHORT).show()
         loading(false)
     }
 

@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import phamf.com.chemicalapp.Abstraction.Interface.ILoadMore
 import phamf.com.chemicalapp.Model.Post
@@ -20,6 +21,7 @@ import phamf.com.chemicalapp.R
 import phamf.com.chemicalapp.ReadPageActivity
 import phamf.com.chemicalapp.databinding.MainListpostViewBinding
 import phamf.com.chemicalapp.supportClass.getViewModel
+import java.util.*
 
 class MainPostListViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>, View.OnClickListener {
 
@@ -121,7 +123,11 @@ class MainPostListViewAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>, Vi
 
         fun bind (post: Post) {
             this.layoutBinding.mModel!!.post.value = post
+            var calendar = Calendar.getInstance()
+            calendar.timeInMillis = post.LastEdit
+            this.layoutBinding.txtLastEdit.text = "${calendar.get(Calendar.DAY_OF_MONTH)}/${calendar.get(Calendar.MONTH)}/${calendar.get(Calendar.YEAR)}"
             Picasso.get().load(post.Avatar).into(this.layoutBinding.imgAvatar)
+            this.layoutBinding.executePendingBindings()
         }
     }
 }

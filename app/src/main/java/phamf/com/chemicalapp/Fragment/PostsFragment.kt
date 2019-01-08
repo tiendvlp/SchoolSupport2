@@ -16,7 +16,6 @@ import phamf.com.chemicalapp.Model.Post
 import phamf.com.chemicalapp.Model.PostRead
 import phamf.com.chemicalapp.R
 import phamf.com.chemicalapp.databinding.FragmentPostsBinding
-import java.util.ArrayList
 import android.support.v7.widget.DividerItemDecoration
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -24,6 +23,7 @@ import android.widget.Toast
 import com.google.android.gms.common.util.ArrayUtils
 import phamf.com.chemicalapp.Abstraction.Interface.ILoadMore
 import phamf.com.chemicalapp.Model.AppDataSingleton
+import java.util.*
 
 
 class PostsFragment : Fragment() {
@@ -78,7 +78,7 @@ class PostsFragment : Fragment() {
     }
 
 
-    private var startAt:Long = 9999
+    private var startAt:Long = 99999999999999999
     fun onReadHotSucc (data: ArrayList<Post>) {
         var pos = mListData.indexOf(null)
         mListData.remove(null)

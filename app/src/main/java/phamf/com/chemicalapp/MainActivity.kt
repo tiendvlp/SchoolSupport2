@@ -4,6 +4,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.View
@@ -41,6 +42,8 @@ class MainActivity : AppCompatActivity(){
         addControls()
         addEvents()
         setup()
+        mBinding.mProgressBar.visibility = View.VISIBLE
+        firstLoading()
     }
 
     fun addControls () {
@@ -70,6 +73,13 @@ class MainActivity : AppCompatActivity(){
 
     }
 
+    fun firstLoading () {
+        Handler().postDelayed({
+            mBinding.backGroundLoading.visibility = View.GONE
+            mBinding.mProgressBar.visibility = View.GONE
+        }, 4000)
+    }
+
     fun addEvents () {
         btnCreatePosts.setOnClickListener({
             when (AppDataSingleton.btnCreateAction) {
@@ -88,6 +98,12 @@ class MainActivity : AppCompatActivity(){
 
         })
         rbtngrMain.setOnCheckedChangeListener(::onGroupCheckedChanged)
+        rbtngrMain.check(R.id.rbtnMain)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mBinding.mProgressBar.visibility = View.GONE
     }
 
     private fun onGroupCheckedChanged (btn: RadioGroup, checkedID : Int) {

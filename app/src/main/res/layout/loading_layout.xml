@@ -5,6 +5,7 @@
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@drawable/overlay">
+    <!--aaa-->
     <ProgressBar
             android:layout_width="35dp"
             android:layout_height="35dp"

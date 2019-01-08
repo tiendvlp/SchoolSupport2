@@ -22,6 +22,7 @@ import phamf.com.chemicalapp.Adapter.pgMainAdapter
 import phamf.com.chemicalapp.Model.Post
 import phamf.com.chemicalapp.Model.PostRead
 import phamf.com.chemicalapp.R
+import phamf.com.chemicalapp.ViewModel.FindPostActivity
 import phamf.com.chemicalapp.databinding.FragmentMainBinding
 import java.util.ArrayList
 
@@ -78,12 +79,15 @@ class MainFragment : Fragment(), ViewPager.OnPageChangeListener {
     fun setup () {
         mPGMainAdapter = pgMainAdapter(childFragmentManager!!)
         pgMain.adapter = mPGMainAdapter
-        rbtnSchool.setChecked(true)
+        rbtnTools.isChecked = true
     }
 
     fun addEvents () {
         pgMain.setOnPageChangeListener(this)
         rbtngrMain.setOnCheckedChangeListener(::onRadioButtonCheckedChanged)
+        mBinding.btnSearch.setOnClickListener({
+            startActivity(Intent(context, FindPostActivity::class.java))
+        })
     }
 
 

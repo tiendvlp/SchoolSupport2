@@ -92,7 +92,7 @@ class TextEditorActivity : AppCompatActivity() {
             val post = Post()
             val currentDate : Long =  System.currentTimeMillis()
             post.Content = mBinding.edtContent.html
-            post.Author = AppDataSingleton.getInstance().currentUser.Id
+            post.Author = AppDataSingleton.getInstance().currentUser.Name
             post.LastEdit = currentDate
             post.Growth = Integer.parseInt(mDialogBinding.edtGrowth.text.toString())
             post.PostedPost = currentDate
@@ -100,7 +100,7 @@ class TextEditorActivity : AppCompatActivity() {
             post.Title = mDialogBinding.edtTitle.text.toString()
             post.ID = "" + System.currentTimeMillis()
             var bitmap : Bitmap = (mDialogBinding.imgAvaPosts.drawable as BitmapDrawable).bitmap
-            mViewModel.postThePost("WorldPost",post,bitmap, callback)
+            mViewModel.postThePost(AppDataSingleton.WhereNewPostWrite,post,bitmap, callback)
         })
     }
 
@@ -135,10 +135,13 @@ class TextEditorActivity : AppCompatActivity() {
     private fun initToolbar() {
         var strikethrough = ARE_ToolItem_Strikethrough()
         var quote = ARE_ToolItem_Quote()
+        var bold : IARE_ToolItem= ARE_ToolItem_Bold();
+        var size : IARE_ToolItem = ARE_ToolItem_FontSize()
         var listNumber = ARE_ToolItem_ListNumber()
         var listBullet = ARE_ToolItem_ListBullet()
         var hr = ARE_ToolItem_Hr()
         var link = ARE_ToolItem_Link()
+
         var subscript = ARE_ToolItem_Subscript()
         var superscript = ARE_ToolItem_Superscript()
         var left = ARE_ToolItem_AlignmentLeft()
@@ -154,6 +157,8 @@ class TextEditorActivity : AppCompatActivity() {
         mBinding.areToolbar.addToolbarItem(link)
         mBinding.areToolbar.addToolbarItem(subscript)
         mBinding.areToolbar.addToolbarItem(superscript)
+        mBinding.areToolbar.addToolbarItem(size)
+        mBinding.areToolbar.addToolbarItem(bold)
         mBinding.areToolbar.addToolbarItem(left)
         mBinding.areToolbar.addToolbarItem(center)
         mBinding.areToolbar.addToolbarItem(image)

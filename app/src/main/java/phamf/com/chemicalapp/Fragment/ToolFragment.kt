@@ -36,6 +36,7 @@ import phamf.com.chemicalapp.Manager.FontManager
 import phamf.com.chemicalapp.Manager.RequireOverlayPermissionManager
 import phamf.com.chemicalapp.RO_Model.RO_ChemicalEquation
 import phamf.com.chemicalapp.ViewModel.MVVM_MainActivityPresenter
+import java.lang.NullPointerException
 import java.util.*
 /**
  * Presenter
@@ -552,6 +553,7 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
 
     @SuppressLint("SetTextI18n")
     override fun onStatusChecked(isAvailable: Boolean, version: Long) {
+try {
 
         if (isAvailable) {
             txt_update_status!!.text = "Available"
@@ -567,6 +569,9 @@ class ToolFragment : Fragment(), IMainActivity.View, OnThemeChangeListener, MVVM
             btn_update!!.visibility = View.GONE
             btn_update!!.isClickable = false
         }
+ }catch (e:NullPointerException) {
+
+}
 
         Log.e("Version", version.toString() + "")
     }

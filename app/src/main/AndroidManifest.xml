@@ -96,6 +96,15 @@
             android:name="com.cloneversion.foody.badguy.foody.view.activity.ResetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".ReadPageActivity"></activity>
+        <activity android:name=".SearchChemicalEquationActivity" />
+        <activity android:name=".GraphDrawerActivity" />
+        <activity android:name=".NormalGraphDrawerActivity" />
+        <activity android:name=".SpecialGraphMenuActivity" />
+        <activity android:name=".GraphMenuActivity" />
+        <activity android:name=".SearchCCoDictionaryActivity" />
+        <activity android:name=".ChemicalCompositionActivity" />
+        <activity android:name=".OnlineSearchChemicalEquationActivity" />
+        <activity android:name=".ViewModel.FindPostActivity"></activity>
     </application>
 
 </manifest>
