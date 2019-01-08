@@ -40,6 +40,10 @@ class LessonViewCreator(private val viewPager_adapter: ViewPager_Lesson_Adapter)
             this.offlineDatabaseManager = OfflineDatabaseManager(context)
         }
 
+        fun clearAll () {
+            parent.removeAllViews()
+        }
+
         // Functions
         fun addContent(content: String, style: String) {
             val textView = TextView(context)
@@ -123,7 +127,7 @@ class LessonViewCreator(private val viewPager_adapter: ViewPager_Lesson_Adapter)
                         component = component.trim { it <= ' ' }
                         if (component.startsWith(IMAGE)) {
                             try {
-                                //all Image has form like <<picture<> link <> width <> height
+                                //all Image has form like <<picture<> link
 
                                 val image_info = component.split(TAG_DIVIDER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                                 val id = image_info[IMAGE_LINK]

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#ff17c1</color>
     <color name="colorAccent">#FF4081</color>
     <color name="TextTitleColor">#c70202</color>
     <color name="Hint_search_color">#e0a8a8</color>
     <color name="BackgroundWeakBlue">#bec7f6</color>
     <color name="QuickSearchBG">#e78989</color>
     <color name="normal_dot_color">#54cd3f</color>
-    <color name="nonmetal_color">#FF65DA</color>
-    <color name="alkali_metal_color">#78FF88</color>
-    <color name="Group_B_metal">#FFF454</color>
+    <color name="nonmetal_color">#f92ac7</color>
+    <color name="alkali_metal_color">#4ff133</color>
+    <color name="Group_B_metal">#FFD700</color>
     <color name="transparent90">#E6cd2027</color>
     <color name="white">#FFFFFF</color>
     <color name="Red">#dc4318</color>

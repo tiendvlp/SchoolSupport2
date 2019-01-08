@@ -1,7 +1,7 @@
 package phamf.com.chemicalapp.Model
 
 
-class Chemical_Composition (
+data class Chemical_Composition (
 
         var id : Int = 0,
 

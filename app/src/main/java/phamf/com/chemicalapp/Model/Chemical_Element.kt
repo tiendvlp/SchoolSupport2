@@ -16,15 +16,15 @@ class Chemical_Element {
 
     var mass: Float = 0.toFloat()
 
+    var inReality : String = ""
+
     lateinit var type: String
 
     var backgroundColor: Int = 0
 
-    constructor() {
+    constructor()
 
-    }
-
-    constructor(id: Int, name: String, symbol: String, electron_count: Int, proton_count: Int, notron_count: Int, mass: Float, type: String, backgroundColor: Int) {
+    constructor(id: Int, name: String, symbol: String, electron_count: Int, proton_count: Int, notron_count: Int, mass: Float, inReality: String,  type: String, backgroundColor: Int) {
 
         this.name = name
         this.symbol = symbol
@@ -32,6 +32,7 @@ class Chemical_Element {
         this.proton_count = proton_count
         this.notron_count = notron_count
         this.mass = mass
+        this.inReality = inReality
         this.type = type
         this.id = id
         this.backgroundColor = backgroundColor

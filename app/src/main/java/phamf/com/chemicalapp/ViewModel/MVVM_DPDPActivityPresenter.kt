@@ -49,17 +49,18 @@ class MVVM_DPDPActivityPresenter(application: Application) : AndroidViewModel(ap
                 .append(orM.molecule_formula)
                 .append(" - " + orM.name).append(COMPONENT_DEVIDER)
                 .append(CONTENT).append(". - Tên thay thế: " + orM.replace_name).append(COMPONENT_DEVIDER)
-                .append(CONTENT).append(". - Công thức cấu tạo : ")
-                .append(IMAGE + orM.structure_image_id + "<>" + 200 + "<>" + 250).append(COMPONENT_DEVIDER)
+                .append(CONTENT).append(". - Công thức cấu tạo : ").append(COMPONENT_DEVIDER)
+                .append(IMAGE + orM.structure_image_id).append(COMPONENT_DEVIDER)
                 .append(CONTENT).append(". - Công thức cấu tạo thu gọn: " + orM.compact_structure_image_id).append(COMPONENT_DEVIDER)
                 .append(CONTENT).append(". - Số đồng phân: " + orM.isomerisms.size).append(COMPONENT_DEVIDER)
 
         for (iso in orM.isomerisms) {
 
-            content.append(CONTENT).append((orM.isomerisms.indexOf(iso) + 1).toString() + ") " + iso.replace_name).append(COMPONENT_DEVIDER)
-                    .append(CONTENT).append(".   - Tên thường: " + orM.normal_name).append(COMPONENT_DEVIDER)
-                    .append(CONTENT).append(".   - Công thức cấu tạo: " + iso.compact_structure_image_id).append(COMPONENT_DEVIDER)
-                    .append(CONTENT).append(".   - Công thức cấu tạo thu gọn: ")
+            content.append(SMALL_TITLE).append((orM.isomerisms.indexOf(iso) + 1).toString() + ") " + iso.replace_name).append(COMPONENT_DEVIDER)
+                    .append(CONTENT).append(".   - Tên thường: " + iso.normal_name).append(COMPONENT_DEVIDER)
+                    .append(CONTENT).append(".   - Công thức cấu tạo: ").append(COMPONENT_DEVIDER)
+                    .append(IMAGE).append(iso.structure_image_id).append(COMPONENT_DEVIDER)
+                    .append(CONTENT).append(".   - Công thức cấu tạo thu gọn: " + iso.compact_structure_image_id).append(COMPONENT_DEVIDER)
         }
 
         ldt_content_data.value = content.toString()
@@ -84,8 +85,8 @@ class MVVM_DPDPActivityPresenter(application: Application) : AndroidViewModel(ap
             for (iso in orM.isomerisms) {
                 content.append(SMALL_TITLE).append("   " + iso.replace_name).append(COMPONENT_DEVIDER)
                         .append(CONTENT).append("   - Công thức cấu tạo: ").append(COMPONENT_DEVIDER)
-                        .append(IMAGE).append(iso.structure_image_id + "<>400<>400").append(COMPONENT_DEVIDER)
-                        .append(CONTENT).append("   - Công thức cấu tạo thu gọn: ").append(COMPONENT_DEVIDER)
+                        .append(IMAGE).append(iso.structure_image_id).append(COMPONENT_DEVIDER)
+                        .append(CONTENT).append("   - Công thức cấu tạo thu gọn: " + iso.compact_structure_image_id).append(COMPONENT_DEVIDER)
             }
         }
 

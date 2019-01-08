@@ -12,23 +12,11 @@ import com.google.firebase.database.GenericTypeIndicator
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import phamf.com.chemicalapp.Model.*
+import phamf.com.chemicalapp.RO_Model.*
 
 import java.util.ArrayList
 
-import phamf.com.chemicalapp.Model.Chapter
-import phamf.com.chemicalapp.Model.ChemicalEquation
-import phamf.com.chemicalapp.Model.Chemical_Element
-import phamf.com.chemicalapp.Model.DPDP
-import phamf.com.chemicalapp.Model.Lesson
-import phamf.com.chemicalapp.Model.OrganicMolecule
-import phamf.com.chemicalapp.Model.UpdateData
-import phamf.com.chemicalapp.Model.UpdateFile
-import phamf.com.chemicalapp.RO_Model.RO_Chapter
-import phamf.com.chemicalapp.RO_Model.RO_ChemicalEquation
-import phamf.com.chemicalapp.RO_Model.RO_Chemical_Element
-import phamf.com.chemicalapp.RO_Model.RO_Chemical_Image
-import phamf.com.chemicalapp.RO_Model.RO_DPDP
-import phamf.com.chemicalapp.RO_Model.RO_Lesson
 import phamf.com.chemicalapp.Supporter.ROConverter
 
 class UpdateDatabaseManager(context: Context, app_version: Long) {
@@ -222,8 +210,17 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
                 Log.e("Error", "Update Chemical Element")
             }
 
-
-
+            try {
+                if (updateFile.chemical_compositions!= null) {
+                    processChemical_Compositions(updateFile.chemical_compositions)
+                    Log.e("Chemical Composi size ", updateFile.chemical_compositions.size.toString())
+                } else {
+                    Log.e("Chemical Elements ", "null")
+                }
+            } catch (ex : Exception) {
+                ex.printStackTrace()
+                Log.e("Error", "Update Chemical Element")
+            }
 
             if (updateFile.update_data != null) {
                 processUpdateData(updateFile.update_data!!)
@@ -236,6 +233,11 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
             ex.printStackTrace()
         }
 
+    }
+
+    private fun processChemical_Compositions(chemical_compositions: ArrayList<Chemical_Composition>) {
+        val ro_chemicalEquations = ROConverter.toRO_CCos(chemical_compositions)
+        offlineDatabaseManager.addOrUpdateDataOf(RO_Chemical_Composition::class.java, ro_chemicalEquations)
     }
 
     // Lesson
@@ -347,7 +349,6 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
 
         if (update_data.chemical_elements != null) {
             updateChemical_Elements(0, update_data.chemical_elements)
-
         }
 
         if (update_data.chemical_equations != null) {
@@ -357,6 +358,26 @@ class UpdateDatabaseManager(context: Context, app_version: Long) {
         if (update_data.dpdps != null) {
             updateDpdps(0, update_data.dpdps)
         }
+
+        if (update_data.chemical_composition != null) {
+            updateChemical_Compositions(0, update_data.chemical_composition)
+        }
+
+    }
+
+    private fun updateChemical_Compositions(pointer: Int, chemical_composition_link: ArrayList<String>) {
+        if (pointer >= chemical_composition_link.size) return
+
+        firebase_database.child(chemical_composition_link[pointer]).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val chemical_composition = dataSnapshot.getValue(Chemical_Composition::class.java)
+                offlineDatabaseManager.addOrUpdateDataOf(RO_Chemical_Composition::class.java, ROConverter.toRO_CCo(chemical_composition!!))
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+
+            }
+        })
     }
 
     private fun updateLessons(pointer: Int, lessons_link: ArrayList<String>) {

@@ -38,9 +38,9 @@
 
     <Button
         android:id="@+id/btn_dpdp_back"
-        android:layout_width="70dp"
-        android:layout_height="100dp"
-        android:background="@drawable/return_bottom_button"
+        android:layout_width="94dp"
+        android:layout_height="64dp"
+        android:background="@drawable/a_prev_back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -51,20 +51,21 @@
         android:id="@+id/txt_dpdp_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="1"
-        android:background="@drawable/bot_background"
-        android:gravity="center"
-        android:text="TextView"
+        android:background="@drawable/a_bottom_background"
+        android:paddingStart="10dp"
+        android:paddingTop="3dp"
+        android:text="Ankan"
         android:textColor="#ffffff"
         android:textSize="20dp"
-        android:textStyle="bold"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -73,17 +74,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    <ListView
-        android:id="@+id/lv_dpdp_quick_change_organic"
-        android:layout_width="244dp"
-        android:layout_height="341dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/QuickSearchBG"
-        android:maxWidth="210dp"
-        android:minWidth="150dp"
+    <LinearLayout
+        android:id="@+id/dpdp_quick_search_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -91,7 +86,34 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_dpdp_title"
         app:layout_constraintVertical_bias="0.0">
 
-    </ListView>
+        <Button
+            android:id="@+id/dpdp_btn_all"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:background="@drawable/a_bottom_background"
+            android:text="Tất cả Ankan"
+            android:textAllCaps="false"
+            android:textColor="#ffffff" />
+
+        <ListView
+            android:id="@+id/lv_dpdp_quick_change_organic"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/Black2"
+            android:maxHeight="340dp"
+            android:maxWidth="210dp"
+            android:minWidth="150dp">
+
+        </ListView>
+    </LinearLayout>
+
+
 
 
     <Button

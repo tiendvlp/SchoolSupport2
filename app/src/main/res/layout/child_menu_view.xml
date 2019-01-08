@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,9 +9,10 @@
         android:id="@+id/txt_item_index"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/background_index_lesson"
         android:gravity="center"
         android:text="1"
@@ -27,12 +28,13 @@
 
     <TextView
         android:id="@+id/txt_item_name"
-        android:layout_width="327dp"
+        android:layout_width="276dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="18dp"
-        android:layout_marginEnd="8dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="18dp"
         android:gravity="left|center_vertical"
         android:text="Hidrocacbon không no"
         android:textColor="@color/TextTitleColor"
@@ -44,4 +46,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

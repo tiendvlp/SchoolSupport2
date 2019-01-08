@@ -292,7 +292,7 @@
 
     <LinearLayout
         android:id="@+id/normal_graph_info_form"
-        android:layout_width="410dp"
+        android:layout_width="320dp"
         android:layout_height="280dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -300,6 +300,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/a_graph_setting_background"
         android:orientation="vertical"
+        android:paddingTop="20dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -312,8 +313,7 @@
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="20dp"
+            android:layout_margin="2dp"
             android:orientation="horizontal"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -321,12 +321,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.473"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.187">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
             <TextView
                 android:id="@+id/normal_graph_txt_graph_content4"
-                android:layout_width="346dp"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_margin="2dp"
                 android:layout_marginStart="8dp"
@@ -367,7 +366,7 @@
 
             <TextView
                 android:id="@+id/normal_graph_txt_graph_content2"
-                android:layout_width="346dp"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_margin="2dp"
                 android:layout_marginStart="8dp"
@@ -411,7 +410,7 @@
 
             <TextView
                 android:id="@+id/normal_graph_txt_graph_content"
-                android:layout_width="346dp"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_margin="2dp"
                 android:layout_marginStart="8dp"
@@ -455,7 +454,7 @@
 
             <TextView
                 android:id="@+id/normal_graph_txt_graph_content3"
-                android:layout_width="346dp"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_margin="2dp"
                 android:layout_marginStart="8dp"
@@ -498,7 +497,7 @@
 
             <TextView
                 android:id="@+id/normal_graph_txt_graph_content1"
-                android:layout_width="346dp"
+                android:layout_width="250dp"
                 android:layout_height="match_parent"
                 android:layout_margin="2dp"
                 android:layout_marginStart="8dp"

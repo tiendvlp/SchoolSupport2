@@ -23,7 +23,6 @@
             android:layout_width="350dp"
             android:layout_height="22dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="188dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +30,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056"
+            app:layout_constraintVertical_bias="0.327"
             app:srcCompat="@drawable/a_ngu_thuc_bac_4" />
 
         <ImageView
@@ -963,7 +962,7 @@
         android:id="@+id/special_graph_navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="62dp">
@@ -992,7 +991,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/a_prev_back_button"
+            android:background="@drawable/a_back_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.003"
@@ -1013,10 +1012,10 @@
             android:inputType="numberSigned"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.861"
+            app:layout_constraintHorizontal_bias="0.86"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.618" />
+            app:layout_constraintVertical_bias="0.677" />
 
         <EditText
             android:id="@+id/special_graph_edt_endX"
@@ -1031,10 +1030,10 @@
             android:inputType="numberSigned"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.861"
+            app:layout_constraintHorizontal_bias="0.86"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/special_graph_edt_startX"
-            app:layout_constraintVertical_bias="0.01" />
+            app:layout_constraintVertical_bias="0.018" />
 
         <TextView
             android:id="@+id/textView8"
@@ -1054,7 +1053,7 @@
             app:layout_constraintHorizontal_bias="0.32"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.621" />
+            app:layout_constraintVertical_bias="0.68" />
 
         <TextView
             android:id="@+id/textView9"
@@ -1086,7 +1085,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/a_back_button"
+        android:background="@drawable/a_prev_back_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
